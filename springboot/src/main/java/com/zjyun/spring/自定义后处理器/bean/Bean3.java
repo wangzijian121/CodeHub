@@ -1,13 +1,10 @@
-package com.zjyun.spring.自定义PostProcessor后处理器.bean;
-
-import org.springframework.stereotype.Component;
+package com.zjyun.spring.自定义后处理器.bean;
 
 /**
  * @Description:
  * @Author: Wang Zijian
  * @Date: 2024/5/27
  */
-@Component
 public class Bean3 {
     private String name;
 

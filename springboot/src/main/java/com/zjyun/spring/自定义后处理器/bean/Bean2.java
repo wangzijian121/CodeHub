@@ -1,4 +1,4 @@
-package com.zjyun.spring.自定义PostProcessor后处理器.bean;
+package com.zjyun.spring.自定义后处理器.bean;
 
 import org.springframework.stereotype.Component;
 

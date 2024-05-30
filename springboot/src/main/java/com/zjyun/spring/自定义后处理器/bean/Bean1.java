@@ -1,4 +1,4 @@
-package com.zjyun.spring.自定义PostProcessor后处理器.bean;
+package com.zjyun.spring.自定义后处理器.bean;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @Author: Wang Zijian
  * @Date: 2024/5/27
  */
-
+@Component
 public class Bean1 {
     @Autowired
     private Bean2 bean2;
