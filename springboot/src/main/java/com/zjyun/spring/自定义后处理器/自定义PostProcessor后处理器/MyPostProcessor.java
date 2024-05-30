@@ -7,10 +7,8 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.beans.factory.annotation.InjectionMetadata;
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.DependencyDescriptor;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
@@ -50,6 +48,7 @@ public class MyPostProcessor implements InstantiationAwareBeanPostProcessor, Bea
             throw new Error("未设置BeanFactory!");
         }
         AutowiredAnnotationBeanPostProcessor processor = new AutowiredAnnotationBeanPostProcessor();
+        processor.setBeanFactory(beanFactory);
         try {
             //通过反射获取findAutowiringMetadata方法。
             Method objectMethod = AutowiredAnnotationBeanPostProcessor.class.getDeclaredMethod("findAutowiringMetadata",
@@ -59,14 +58,17 @@ public class MyPostProcessor implements InstantiationAwareBeanPostProcessor, Bea
             objectMethod.setAccessible(true);
             //通过反射借用底层方法😅
             InjectionMetadata metadata = (InjectionMetadata) objectMethod.invoke(processor, beanName, Bean1.class, null);
+            System.out.println(beanName);
+            if (beanName.equals("com.zjyun.spring.自定义后处理器.bean.Bean1")) {
+                metadata.inject(bean, beanName, null);
+                //inject 内部原理
+                //获取字段依赖
+                Field field = bean.getClass().getDeclaredField("bean2");
+                DependencyDescriptor dependencyDescriptor = new DependencyDescriptor(field, false);
+                Object o = beanFactory.doResolveDependency(dependencyDescriptor, null, null, null);
+                System.out.println("inject内部原理-依赖的对象：" + o);
+            }
 
-            //metadata.inject(bean, beanName, null);
-            //inject 内部原理
-            //获取字段依赖
-            Field field = bean.getClass().getDeclaredField(beanName);
-            DependencyDescriptor dependencyDescriptor = new DependencyDescriptor(field, false);
-            Object o = beanFactory.doResolveDependency(dependencyDescriptor, null, null, null);
-            System.out.println("inject内部原理-依赖的对象：" + o);
         } catch (Exception e) {
             throw new RuntimeException(e);
         } catch (Throwable e) {

@@ -21,11 +21,14 @@ public class MyApplicationContext {
         context.registerBean(AppConfig.class);
         //内置的BeanFactory处理器
         //context.addBeanFactoryPostProcessor(new ConfigurationClassPostProcessor());
+        //自定义BeanFactory后处理器
         context.addBeanFactoryPostProcessor(new MyBeanFactoryPostProcessor());
 
         //Spring 的Bean后处理器（解析@Autowired、@Resource等）
         //context.registerBean(AutowiredAnnotationBeanPostProcessor.class);
         //context.registerBean(CommonAnnotationBeanPostProcessor.class);
+
+        //自定义Bean后处理器
         MyPostProcessor postProcessor=new MyPostProcessor();
         postProcessor.setBeanFactory(context.getDefaultListableBeanFactory());
         context.registerBean(MyPostProcessor.class);
