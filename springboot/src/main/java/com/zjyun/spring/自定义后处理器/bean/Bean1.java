@@ -8,7 +8,8 @@ import org.springframework.stereotype.Component;
  * @Author: Wang Zijian
  * @Date: 2024/5/27
  */
-@Component
+@Component()
+
 public class Bean1 {
     @Autowired
     private Bean2 bean2;

@@ -4,9 +4,6 @@ import com.zjyun.spring.自定义后处理器.bean.Bean1;
 import com.zjyun.spring.自定义后处理器.config.AppConfig;
 import com.zjyun.spring.自定义后处理器.自定义BeanFactoryPostProcessor后处理器.MyBeanFactoryPostProcessor;
 import com.zjyun.spring.自定义后处理器.自定义PostProcessor后处理器.MyPostProcessor;
-import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
-import org.springframework.context.annotation.CommonAnnotationBeanPostProcessor;
-import org.springframework.context.annotation.ConfigurationClassPostProcessor;
 import org.springframework.context.support.GenericApplicationContext;
 
 /**

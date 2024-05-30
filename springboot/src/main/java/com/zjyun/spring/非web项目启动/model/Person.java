@@ -1,7 +1,5 @@
 package com.zjyun.spring.非web项目启动.model;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 /**

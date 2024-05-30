@@ -2,7 +2,6 @@ package com.zjyun.spring.beanfactory;
 
 import com.zjyun.spring.config.AppConfig;
 import com.zjyun.spring.model.Bean1;
-import com.zjyun.spring.model.Bean2;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;

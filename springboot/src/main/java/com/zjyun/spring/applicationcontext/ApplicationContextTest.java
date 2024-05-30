@@ -1,9 +1,7 @@
 package com.zjyun.spring.applicationcontext;
 
 import com.zjyun.spring.config.AppConfig;
-import com.zjyun.spring.config.WebConfig;
 import com.zjyun.spring.model.Bean1;
-import org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -33,7 +31,7 @@ public class ApplicationContextTest {
     }
 
     public static void testFileSystemXmlApplicationContext() {
-        ApplicationContext context = new FileSystemXmlApplicationContext("D:\\项目\\王子健-Java\\Java\\springboot\\target\\classes\\WEB-INF\\applicationContext.xml");
+        ApplicationContext context = new FileSystemXmlApplicationContext("D:\\项目\\王子健-Java\\Java\\springboot\\target\\classes\\WEB-INF\\application.xml");
         System.out.println(context.getBean(Bean1.class));
 
     }
@@ -48,8 +46,8 @@ public class ApplicationContextTest {
 
     public static void testAnnotationConfigServletWebServerApplicationContext() {
         //基于ServletWeb 服务器的容器实现
-        AnnotationConfigServletWebServerApplicationContext context =
-                new AnnotationConfigServletWebServerApplicationContext(WebConfig.class);
+        //AnnotationConfigServletWebServerApplicationContext context =
+        //        new AnnotationConfigServletWebServerApplicationContext(WebConfig.class);
 
 //        context.getBean("bean1");
 //        context.getBean("bean2");

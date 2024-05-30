@@ -2,9 +2,7 @@ package com.zjyun.spring.非web项目启动;
 
 import com.zjyun.spring.非web项目启动.config.AppConfig;
 import com.zjyun.spring.非web项目启动.service.MyService;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @Description:

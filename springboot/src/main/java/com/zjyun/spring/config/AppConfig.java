@@ -2,9 +2,7 @@ package com.zjyun.spring.config;
 
 import com.zjyun.spring.model.Bean1;
 import com.zjyun.spring.model.Bean2;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**

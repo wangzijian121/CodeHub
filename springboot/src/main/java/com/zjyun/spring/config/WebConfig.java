@@ -1,20 +1,5 @@
 package com.zjyun.spring.config;
 
-import com.zjyun.spring.model.Bean1;
-import org.springframework.boot.autoconfigure.web.servlet.DispatcherServletPath;
-import org.springframework.boot.autoconfigure.web.servlet.DispatcherServletRegistrationBean;
-import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
-import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.context.request.ServletWebRequest;
-import org.springframework.web.servlet.DispatcherServlet;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 /**
  * @Description:
  * @Author: Wang Zijian
@@ -23,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 //@Configuration
 public class WebConfig {
 
-    @Bean
+/*    @Bean
     public ServletWebServerFactory servletWebServerFactory() {
         return new TomcatServletWebServerFactory();
     }
@@ -46,5 +31,5 @@ public class WebConfig {
                 return null;
             }
         };
-    }
+    }*/
 }
