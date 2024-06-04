@@ -68,7 +68,6 @@ public class MyPostProcessor implements InstantiationAwareBeanPostProcessor, Bea
                 Object o = beanFactory.doResolveDependency(dependencyDescriptor, null, null, null);
                 System.out.println("inject内部原理-依赖的对象：" + o);
             }
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         } catch (Throwable e) {
@@ -89,7 +88,7 @@ public class MyPostProcessor implements InstantiationAwareBeanPostProcessor, Bea
         return true;
     }
 
-    @Override
+   /* @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         System.out.println("【初始化】前！");
         return null;
@@ -99,5 +98,5 @@ public class MyPostProcessor implements InstantiationAwareBeanPostProcessor, Bea
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         System.out.println("【初始化】后！");
         return null;
-    }
+    }*/
 }

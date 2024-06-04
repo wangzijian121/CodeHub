@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean class="com.zjyun.spring官方文档.依赖项.自动注入.City" name="city">
+        <property name="cityName" value="beijing"/>
+    </bean>
+    <bean class="com.zjyun.spring官方文档.依赖项.自动注入.Person" name="person" autowire="constructor" />
+
+<!--        <constructor-arg name="name" value="wangzijian"/>-->
+<!--        <constructor-arg type="com.zjyun.spring官方文档.依赖项.自动注入.City" value=""/>-->
+    <bean class="com.zjyun.spring官方文档.依赖项.自动注入.NotNullBeanPostProcessor"/>
+</beans>
+
