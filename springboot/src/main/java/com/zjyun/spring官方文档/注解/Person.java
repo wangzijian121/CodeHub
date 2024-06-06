@@ -1,28 +1,25 @@
 package com.zjyun.spring官方文档.注解;
 
-import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
-import org.springframework.lang.Nullable;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
-import java.util.Map;
 
 @Component
 @Data
-@Service
 public class Person {
 
-    private City city;
+    private String name;
 
-    @Autowired
-    public Person(City city) {
-        this.city = city;
+    public Person(@Value("${app.name}") String name) {
+        this.name = name;
     }
 
-    /*    @Autowired
-    public void setCity(City city) {
-        this.city = city;
-    }*/
+    @Override
+    public String toString() {
+        return "Person{" +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

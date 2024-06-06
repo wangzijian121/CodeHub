@@ -1,24 +1,25 @@
 package com.zjyun.spring官方文档.注解;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.stereotype.Component;
 
-/**
- * @Description:
- * @Author: Wang Zijian
- * @Date: 2024/6/3
- */
 @Configuration
 @ComponentScan("com.zjyun.spring官方文档.注解")
-@PropertySource("classpath:application.properties")
+@PropertySource(value = {"classpath:application-${env}.properties"})
 public class AppConfig {
- /*   @Bean
-    @Primary
-    public Person getPerson(){
-        return new Person();
-    }*/
+
+    @Profile("dev")
     @Bean
-    public static PropertySourcesPlaceholderConfigurer propertyPlaceholderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
+    public Object initDev(@Value("${app.name}") String name) {
+        System.out.println("initDev:"+name);
+        return null;
+    }
+    @Profile("dev")
+    @Bean
+    public Object initProd(@Value("${app.name}") String name) {
+        System.out.println("initDev:"+name);
+        return null;
     }
 }
+
