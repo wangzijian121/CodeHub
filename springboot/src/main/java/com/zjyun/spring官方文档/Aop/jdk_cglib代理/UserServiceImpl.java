@@ -1,9 +1,6 @@
-package com.zjyun.spring官方文档.Aop.AOP的实现方案;
+package com.zjyun.spring官方文档.Aop.jdk_cglib代理;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
 
 /**
  * 用户服务类（待增强）
@@ -23,3 +20,4 @@ public class UserServiceImpl implements IService {
         System.out.println("s2....");
     }
 }
+
