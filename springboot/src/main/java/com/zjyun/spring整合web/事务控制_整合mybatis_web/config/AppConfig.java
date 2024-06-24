@@ -18,5 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @PropertySource("classpath:jdbc.properties")
 @Import({JdbcConfig.class, MyBatisConfig.class})
+
+
 public class AppConfig {
 }

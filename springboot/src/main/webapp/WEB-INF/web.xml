@@ -3,10 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <!--默认使用XMLWebApplicationContext-->
+    <!--    <context-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:application.xml</param-value>
+        </context-param>
+        -->
+    <!--默认使用手动指定AnnotationConfigWebApplicationContext-->
     <context-param>
-        <param-name>contextConfigLocation</param-name>
-                <param-value>classpath:application.xml</param-value>
+        <param-name>contextClass</param-name>
+        <param-value>
+            com.zjyun.spring整合web.事务控制_整合mybatis_web.config.AnnotationConfigWebApplicationContextConfig
+        </param-value>
     </context-param>
+
+    <!--Spring web提供的servlet监听器-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
