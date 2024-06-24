@@ -1,5 +1,7 @@
-package zjyun.spring_aop.AOP的应用.事务控制_整合mybatis.config;
+package com.zjyun.b_spring快速入门.config;
 
+import com.zjyun.a_spring整合web.config.JdbcConfig;
+import com.zjyun.a_spring整合web.config.MyBatisConfig;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.*;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -13,10 +15,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
 
-@ComponentScan("zjyun.spring_aop.AOP的应用.事务控制_整合mybatis")
-@MapperScan("zjyun.spring_aop.AOP的应用.事务控制_整合mybatis.mapper")
-
-@PropertySource("classpath:jdbc.properties")
-@Import({JdbcConfig.class, MyBatisConfig.class})
+@ComponentScan("com.zjyun.b_spring快速入门")
 public class AppConfig {
 }

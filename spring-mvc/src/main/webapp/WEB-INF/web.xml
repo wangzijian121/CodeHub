@@ -3,22 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <!--默认使用XMLWebApplicationContext-->
-    <!--    <context-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:application.xml</param-value>
-        </context-param>
-        -->
-    <!--默认使用手动指定AnnotationConfigWebApplicationContext-->
-    <context-param>
-        <param-name>contextClass</param-name>
-        <param-value>
-            com.zjyun.a_spring整合web.config.AnnotationConfigWebApplicationContextConfig
-        </param-value>
-    </context-param>
 
-    <!--Spring web提供的servlet监听器-->
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+    <servlet>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextClass</param-name>
+            <param-value>com.zjyun.b_spring快速入门.config.AnnotationConfigWebApplicationContextConfig</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 </web-app>
