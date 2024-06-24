@@ -7,8 +7,8 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
  * @Author: Wang Zijian
  * @Date: 2024/6/24
  */
-public class AnnotationConfigWebApplicationContextConfig  extends AnnotationConfigWebApplicationContext {
+public class AnnotationConfigWebApplicationContextConfig extends AnnotationConfigWebApplicationContext {
     public AnnotationConfigWebApplicationContextConfig() {
-        this.register(AppConfig.class);
+        this.register(WebApplicationConfig.class);
     }
 }
