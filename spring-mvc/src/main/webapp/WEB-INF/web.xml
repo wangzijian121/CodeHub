@@ -7,6 +7,7 @@
     <servlet>
         <servlet-name>DispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--扫描MVC的-->
         <init-param>
             <param-name>contextClass</param-name>
             <param-value>com.zjyun.b_spring快速入门.config.AnnotationConfigWebApplicationContextConfig</param-value>
@@ -17,4 +18,10 @@
         <servlet-name>DispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!--TODO MVC 与 Spring IOC 的集成，如何整合的？两个容器？-->
+    <!--Spring web提供的servlet监听器-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 </web-app>

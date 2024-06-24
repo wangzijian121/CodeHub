@@ -1,8 +1,5 @@
 package com.zjyun.b_spring快速入门.config;
 
-import com.zjyun.a_spring整合web.config.JdbcConfig;
-import com.zjyun.a_spring整合web.config.MyBatisConfig;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.*;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
