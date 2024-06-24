@@ -14,7 +14,9 @@
     <module>design-patterns</module>
     <module>data-structure</module>
     <module>j2ee</module>
-    <module>springboot</module>
+    <module>spring-ioc</module>
+    <module>spring-mvc</module>
+    <module>spring-aop</module>
 </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

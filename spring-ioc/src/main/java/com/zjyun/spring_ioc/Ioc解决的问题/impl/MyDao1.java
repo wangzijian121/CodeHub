@@ -1,0 +1,17 @@
+package com.zjyun.spring_ioc.Ioc解决的问题.impl;
+
+import com.zjyun.spring_ioc.Ioc解决的问题.Dao;
+import org.springframework.stereotype.Component;
+
+/**
+ * @Description:
+ * @Author: Wang Zijian
+ * @Date: 2024/6/3
+ */
+@Component
+public class MyDao1 implements Dao {
+    @Override
+    public void select() {
+        System.out.println("MyDao1 select");
+    }
+}
