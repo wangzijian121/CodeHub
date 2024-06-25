@@ -53,7 +53,7 @@ public class UserController implements ApplicationContextAware {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         for (String definitionName : applicationContext.getBeanDefinitionNames()) {
-            //System.out.println("Controller🥔" + definitionName);
+            System.out.println("WebApplicationContext中的Bean🥔：" + definitionName);
         }
     }
 }

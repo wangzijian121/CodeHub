@@ -3,6 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
     <!--1.Spring web提供的servlet监听器，加载到【RootApplicationContext】容器-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -14,7 +15,7 @@
         <!--2.扫描到Servlet容器【WebApplicationContext】-->
         <init-param>
             <param-name>contextClass</param-name>
-            <param-value>com.zjyun.b_spring快速入门.config.AnnotationConfigWebApplicationContextConfig</param-value>
+            <param-value>com.zjyun.b_spring快速入门.config.SpringMvcAnnotationConfigWebApplicationContext</param-value>
         </init-param>
         <load-on-startup>2</load-on-startup>
     </servlet>
