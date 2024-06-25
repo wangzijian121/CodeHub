@@ -1,6 +1,7 @@
 package com.zjyun.b_spring快速入门.controller;
 
 import com.zjyun.b_spring快速入门.service.MyService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -8,6 +9,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.WebApplicationContext;
+
+import java.util.Map;
 
 /**
  * @Description:
@@ -22,7 +25,8 @@ public class MyController implements ApplicationContextAware {
     private MyService myService;
 
     @RequestMapping(value = "/show", method = RequestMethod.GET)
-    public String  show() {
+    public String show(@RequestParam("name") String username) {
+        System.out.println(username);
         System.out.println("MyController#show(),myService:" + myService);
         return "index.jsp";
     }
@@ -35,7 +39,23 @@ public class MyController implements ApplicationContextAware {
 
     @PostMapping("/show3")
     public String show3() {
-        System.out.println("MyController#show3(),myService:" + myService);
+        System.out.println("MyController#show3333(),myService:" + myService);
+        return "index.jsp";
+    }
+
+    @GetMapping("/show4")
+    public String show4(String[] list) {
+        for (String string : list) {
+            System.out.println("show4:" + string);
+        }
+        return "index.jsp";
+    }
+
+    @GetMapping("/show5")
+    public String show5(Map<String, String> map) {
+        for (String string : map.keySet()) {
+            System.out.println("show5:" + string);
+        }
         return "index.jsp";
     }
 
