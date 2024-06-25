@@ -23,7 +23,7 @@ import java.time.LocalTime;
  */
 @Controller
 @RequestMapping("/file")
-public class FileController implements ApplicationContextAware {
+public class FileController {
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public String upload(@RequestBody MultipartFile file) {
@@ -36,12 +36,5 @@ public class FileController implements ApplicationContextAware {
         }
         System.out.println(this.getClass().getPackage().getName());
         return "index";
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        for (String definitionName : applicationContext.getBeanDefinitionNames()) {
-            //System.out.println("Controller🥔" + definitionName);
-        }
     }
 }

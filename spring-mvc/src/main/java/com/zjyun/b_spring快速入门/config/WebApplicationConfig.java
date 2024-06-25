@@ -4,10 +4,15 @@ import com.zjyun.b_spring快速入门.model.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -23,6 +28,7 @@ import java.util.stream.Stream;
  */
 @Configuration
 @ComponentScan("com.zjyun.b_spring快速入门.controller")
+@Import(ResourceConfig.class)
 public class WebApplicationConfig {
 
     /**
@@ -39,6 +45,7 @@ public class WebApplicationConfig {
         requestMappingHandlerAdapter.setMessageConverters(collect);
         return requestMappingHandlerAdapter;
     }
+
 
     @Bean
     public InternalResourceViewResolver getInternalResourceViewResolver() {

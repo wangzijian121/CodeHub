@@ -18,9 +18,15 @@
         </init-param>
         <load-on-startup>2</load-on-startup>
     </servlet>
+    <!--启动Servlet 处理-->
+<!--    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>-->
 
     <servlet-mapping>
         <servlet-name>DispatcherServlet</servlet-name>
         <url-pattern>/mvc/*</url-pattern>
     </servlet-mapping>
+
 </web-app>
