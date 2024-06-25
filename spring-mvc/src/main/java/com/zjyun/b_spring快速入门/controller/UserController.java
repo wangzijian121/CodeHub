@@ -26,11 +26,34 @@ public class UserController implements ApplicationContextAware {
         return "../index.jsp";
     }
 
+    /*
+    包装为对象
+     */
+    @RequestMapping("/show2")
+    public String show2(User user) {
+        System.out.println(user);
+        return "../index.jsp";
+    }
+
+    /**
+     * @param id
+     * @param string
+     * @return
+     * @PathVariable 通过路径获取ID
+     */
+    @RequestMapping(value = "/find_user/{id}/{str}", method = RequestMethod.GET)
+    public String findUserById(@PathVariable("id") String id, @PathVariable("str") String string) {
+        System.out.println("findUserById👉" + id);
+        System.out.println("findUserById👉" + string);
+        return "../../index.jsp";
+    }
+
+
+
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("🧐Controller：" + applicationContext);
         for (String definitionName : applicationContext.getBeanDefinitionNames()) {
-            System.out.println("Controller🥔" + definitionName);
+            //System.out.println("Controller🥔" + definitionName);
         }
     }
 }

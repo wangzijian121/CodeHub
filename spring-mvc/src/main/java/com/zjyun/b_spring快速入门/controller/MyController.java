@@ -28,19 +28,19 @@ public class MyController implements ApplicationContextAware {
     public String show(@RequestParam("name") String username) {
         System.out.println(username);
         System.out.println("MyController#show(),myService:" + myService);
-        return "index.jsp";
+        return "index";
     }
 
     @GetMapping("/show2")
     public String show2() {
         System.out.println("MyController#show2(),myService:" + myService);
-        return "index.jsp";
+        return "index";
     }
 
     @PostMapping("/show3")
     public String show3() {
         System.out.println("MyController#show3333(),myService:" + myService);
-        return "index.jsp";
+        return "index";
     }
 
     @GetMapping("/show4")
@@ -48,7 +48,7 @@ public class MyController implements ApplicationContextAware {
         for (String string : list) {
             System.out.println("show4:" + string);
         }
-        return "index.jsp";
+        return "index";
     }
 
     @GetMapping("/show5")
@@ -56,14 +56,13 @@ public class MyController implements ApplicationContextAware {
         for (String string : map.keySet()) {
             System.out.println("show5:" + string);
         }
-        return "index.jsp";
+        return "index";
     }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("🧐Controller：" + applicationContext);
         for (String definitionName : applicationContext.getBeanDefinitionNames()) {
-            System.out.println("Controller🥔" + definitionName);
+            //System.out.println("Controller🥔" + definitionName);
         }
     }
 }
