@@ -18,7 +18,6 @@ import java.time.LocalDate;
  */
 @RestController
 @RequestMapping("/res")
-
 public class ResponseController {
 
     /**
