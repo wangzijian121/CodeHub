@@ -1,6 +1,5 @@
 package com.zjyun.b_spring快速入门.config;
 
-import com.zjyun.a_spring整合web.config.AppConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
@@ -32,7 +31,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  *     </servlet-mapping>
  *
  * </web-app>
- * @Description:
+ * @Description: Servlet 容器初始化配置类
  * @Author: Wang Zijian
  * @Date: 2024/6/25
  */
@@ -45,10 +44,7 @@ public class InitServletContainer extends AbstractAnnotationConfigDispatcherServ
      */
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        System.out.println("执行！");
-        Class[] classes = new Class[1];
-        classes[0] = RootApplicationConfig.class;
-        return classes;
+        return new Class[]{SpringApplicationConfig.class};
     }
 
     /**
@@ -58,7 +54,7 @@ public class InitServletContainer extends AbstractAnnotationConfigDispatcherServ
      */
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{SpringMvcApplicationConfig.class};
+        return new Class[]{SpringMVCApplicationConfig.class};
     }
 
     @Override

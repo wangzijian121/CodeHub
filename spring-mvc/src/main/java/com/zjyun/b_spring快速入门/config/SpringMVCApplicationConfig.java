@@ -4,12 +4,14 @@ import com.zjyun.b_spring快速入门.interceptor.MyInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
 import java.util.List;
@@ -23,11 +25,9 @@ import java.util.stream.Stream;
  */
 @Configuration
 @ComponentScan("com.zjyun.b_spring快速入门.controller")
-@Import(ResourceConfig.class)
 //开启MVC注释
 @EnableWebMvc //<mvc:annonation-driven>
-public class SpringMvcApplicationConfig implements WebMvcConfigurer {
-
+public class SpringMVCApplicationConfig implements WebMvcConfigurer {
 
     /**
      * 替代： <mvc:default-servlet-handler>

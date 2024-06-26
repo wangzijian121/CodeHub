@@ -2,14 +2,11 @@ package com.zjyun.b_spring快速入门.controller;
 
 import com.zjyun.b_spring快速入门.model.Address;
 import com.zjyun.b_spring快速入门.model.User;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.io.File;
-import java.io.IOException;
-import java.time.LocalDate;
 
 /**
  * @Description:

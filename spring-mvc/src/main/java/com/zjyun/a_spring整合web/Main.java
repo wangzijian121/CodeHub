@@ -3,7 +3,6 @@ package com.zjyun.a_spring整合web;
 import com.zjyun.a_spring整合web.config.AppConfig;
 import com.zjyun.a_spring整合web.model.Account;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @Description:
