@@ -56,7 +56,7 @@ public class SpringMVCApplicationConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         MyInterceptor myInterceptor = new MyInterceptor();
-        registry.addInterceptor(myInterceptor).addPathPatterns("/**");
+        registry.addInterceptor(myInterceptor).addPathPatterns("/my");
     }
 
     /**

@@ -21,7 +21,7 @@ public class UserController implements ApplicationContextAware {
     @RequestMapping("/show")
     public String show(User user) {
         System.out.println(user);
-        return "../index.jsp";
+        return "index";
     }
 
     /*
