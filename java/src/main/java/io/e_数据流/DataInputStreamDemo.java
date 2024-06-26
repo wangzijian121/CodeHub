@@ -25,7 +25,8 @@ public class DataInputStreamDemo {
             char c = 'a';
 
             // 写
-            dos.writeByte(b); // 把数据以及数据的类型一并写入到文件当中。
+            // 把数据以及数据的类型一并写入到文件当中。
+            dos.writeByte(b);
             dos.writeShort(s);
             dos.writeInt(i);
             dos.writeLong(l);

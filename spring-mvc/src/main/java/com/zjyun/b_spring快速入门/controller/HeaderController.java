@@ -39,5 +39,4 @@ public class HeaderController {
         System.out.println(cookie);
         return "index";
     }
-
 }

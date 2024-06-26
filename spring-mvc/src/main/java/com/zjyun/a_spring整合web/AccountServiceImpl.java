@@ -23,7 +23,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Autowired
     public AccountServiceImpl(AccountDao accountDao) {
-        Assert.notNull(accountDao);
+        Assert.notNull(accountDao,"为空！");
         this.accountDao = accountDao;
     }
 

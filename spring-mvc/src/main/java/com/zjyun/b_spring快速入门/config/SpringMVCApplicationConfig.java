@@ -69,9 +69,12 @@ public class SpringMVCApplicationConfig implements WebMvcConfigurer {
         System.out.println("初始化CommonsMultipartResolver");
         CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
         commonsMultipartResolver.setDefaultEncoding("utf-8");
-        commonsMultipartResolver.setMaxUploadSizePerFile(5242880);//每个文件的限制大小
-        commonsMultipartResolver.setMaxUploadSize(5242880);//上传文件的总大小
-        commonsMultipartResolver.setMaxInMemorySize(52428800);//上传文件的缓存大小
+        //每个文件的限制大小
+        commonsMultipartResolver.setMaxUploadSizePerFile(5242880);
+        //上传文件的总大小
+        commonsMultipartResolver.setMaxUploadSize(5242880);
+        //上传文件的缓存大小
+        commonsMultipartResolver.setMaxInMemorySize(52428800);
         return commonsMultipartResolver;
     }
 

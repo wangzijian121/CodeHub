@@ -19,8 +19,11 @@ import java.util.Map;
 @RequestMapping("/my")
 public class MyController implements ApplicationContextAware {
 
-    @Autowired
-    private MyService myService;
+    private final MyService myService;
+
+    public MyController(MyService myService) {
+        this.myService = myService;
+    }
 
     @RequestMapping(value = "/show", method = RequestMethod.GET)
     public String show(@RequestParam("name") String username) {
