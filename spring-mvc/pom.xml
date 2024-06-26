@@ -8,7 +8,6 @@
         <artifactId>Java-Technology</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
     <artifactId>spring-mvc</artifactId>
 
     <properties>
@@ -19,24 +18,6 @@
     </properties>
 
     <dependencies>
-        <!--Spring Beans-->
-    <!--    <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        &lt;!&ndash;Spring Context&ndash;&gt;
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        &lt;!&ndash;Spring Web&ndash;&gt;
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>-->
         <!--Spring Web-->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -84,6 +65,7 @@
             <artifactId>spring-orm</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <!--多线程安全注解-->
         <dependency>
             <groupId>net.jcip</groupId>
             <artifactId>jcip-annotations</artifactId>
@@ -103,5 +85,4 @@
             <version>1.4</version>
         </dependency>
     </dependencies>
-
 </project>
