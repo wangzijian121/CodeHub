@@ -15,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
 import java.util.List;
+import java.util.Properties;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -24,7 +25,7 @@ import java.util.stream.Stream;
  * @Date: 2024/6/18
  */
 @Configuration
-@ComponentScan("com.zjyun.b_spring快速入门.controller")
+@ComponentScan({"com.zjyun.b_spring快速入门.controller","com.zjyun.b_spring快速入门.ex"})
 //开启MVC注释
 @EnableWebMvc //<mvc:annonation-driven>
 public class SpringMVCApplicationConfig implements WebMvcConfigurer {
@@ -58,6 +59,22 @@ public class SpringMVCApplicationConfig implements WebMvcConfigurer {
         MyInterceptor myInterceptor = new MyInterceptor();
         registry.addInterceptor(myInterceptor).addPathPatterns("/my");
     }
+
+
+    /**
+     * 异常处理
+     * @return
+     */
+    /*@Bean
+    public SimpleMappingExceptionResolver simpleMappingExceptionResolver() {
+        SimpleMappingExceptionResolver exceptionResolver = new SimpleMappingExceptionResolver();
+        exceptionResolver.setDefaultErrorView("index.html");
+        Properties properties = new Properties();
+        properties.setProperty("java.lang.ArithmeticException", "zero_ex.html");
+        properties.setProperty("java.lang.Exception", "index.html");
+        exceptionResolver.setExceptionMappings(properties);
+        return exceptionResolver;
+    }*/
 
     /**
      * 开启多部分解析程序(文件上传)

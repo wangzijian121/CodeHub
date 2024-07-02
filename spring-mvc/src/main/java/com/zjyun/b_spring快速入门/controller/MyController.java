@@ -62,6 +62,7 @@ public class MyController implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        //System.out.println("🧐Controller："+applicationContext);
         for (String definitionName : applicationContext.getBeanDefinitionNames()) {
             //System.out.println("Controller🥔" + definitionName);
         }

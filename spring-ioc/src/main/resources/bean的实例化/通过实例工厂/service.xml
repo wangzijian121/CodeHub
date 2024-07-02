@@ -4,16 +4,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="bean1" class="com.zjyun.spring_ioc.bean的实例化.c_通过实例工厂.Bean1">
+    <bean id="bean1" class="com.zjyun.spring_ioc.c_bean的实例化.c_通过实例工厂.Bean1">
         <property name="name" value="wangzijian111">
         </property>
     </bean>
-    <bean id="bean2" class="com.zjyun.spring_ioc.bean的实例化.c_通过实例工厂.Bean2">
+    <bean id="bean2" class="com.zjyun.spring_ioc.c_bean的实例化.c_通过实例工厂.Bean2">
         <property name="name" value="wangzijian222">
         </property>
     </bean>
 
-    <bean id="factoryBean" class="com.zjyun.spring_ioc.bean的实例化.c_通过实例工厂.BeanFactory"/>
+    <bean id="factoryBean" class="com.zjyun.spring_ioc.c_bean的实例化.c_通过实例工厂.BeanFactory"/>
 
     <bean id="bean1Factory" factory-bean="factoryBean" factory-method="createBean1Instance"/>
     <bean id="bean2Factory" factory-bean="factoryBean" factory-method="createBean2Instance"/>

@@ -15,9 +15,9 @@ import org.springframework.stereotype.Service;
 public class MyServiceImpl implements MyService, ApplicationContextAware {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("🧐Service："+applicationContext);
+        System.out.println("🧐Spring容器："+applicationContext);
         for (String definitionName : applicationContext.getBeanDefinitionNames()) {
-            System.out.println("Service🥔"+definitionName);
+            System.out.println("ROOT容器中的bean🥔"+definitionName);
         }
     }
 }

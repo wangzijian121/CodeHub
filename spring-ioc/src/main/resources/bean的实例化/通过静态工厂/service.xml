@@ -5,9 +5,9 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- services -->
-    <bean id="bean" class="com.zjyun.spring_ioc.bean的实例化.b_通过静态工厂.Bean"  >
+    <bean id="bean" class="com.zjyun.spring_ioc.c_bean的实例化.b_通过静态工厂.Bean"  >
         <property name="name" value="wangzijian222" />
     </bean>
-    <bean id="beanFactory" class="com.zjyun.spring_ioc.bean的实例化.b_通过静态工厂.BeanFactory" factory-method="createInstance"/>
+    <bean id="beanFactory" class="com.zjyun.spring_ioc.c_bean的实例化.b_通过静态工厂.BeanFactory" factory-method="createInstance"/>
 <!--    <bean id="bean2FactoryLoad" factory-bean="bean2Factory"  factory-method="createInstance"/>-->
 </beans>

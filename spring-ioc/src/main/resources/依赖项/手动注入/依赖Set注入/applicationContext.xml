@@ -4,11 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean class="com.zjyun.spring_ioc.依赖项.手动注入.依赖Set注入.City" name="city">
+    <bean class="com.zjyun.spring_ioc.d_依赖项注入.手动注入.依赖Set注入.City" name="city">
         <property name="cityName" value="beijing"></property>
     </bean>
 
-    <bean class="com.zjyun.spring_ioc.依赖项.手动注入.依赖Set注入.Person" name="person">
+    <bean class="com.zjyun.spring_ioc.d_依赖项注入.手动注入.依赖Set注入.Person" name="person">
         <property name="name" value="王子健"/>
         <property name="city" ref="city"/>
      </bean>

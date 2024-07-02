@@ -50,6 +50,7 @@ public class UserController implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        System.out.println("🧐SpringMVC容器："+applicationContext);
         for (String definitionName : applicationContext.getBeanDefinitionNames()) {
             System.out.println("WebApplicationContext中的Bean🥔" + definitionName);
         }
