@@ -8,6 +8,7 @@
     <artifactId>Java-Technology</artifactId>
     <version>1.0-SNAPSHOT</version>
 <modules>
+    <module>algorithm</module>
     <module>java</module>
     <module>jdk8</module>
     <module>jvm</module>

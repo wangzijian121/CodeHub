@@ -6,7 +6,6 @@ import org.springframework.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
 public class CglibProxy {
-
     public static void main(String[] args) {
         // 创建 Enhancer 对象
         Enhancer enhancer = new Enhancer();
