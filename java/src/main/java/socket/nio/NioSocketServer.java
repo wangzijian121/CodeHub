@@ -1,4 +1,4 @@
-package io.h_nio.selector;
+package socket.nio;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -43,15 +43,19 @@ public class NioSocketServer extends Thread {
             while (iterator.hasNext()) {
                 selectionKey = iterator.next();
                 iterator.remove();
+
                 if (selectionKey.isAcceptable()) {
-                    //连接事件（连接后获取UUID和欢迎）
+
                     acceptEvent(channel, selector);
+
                 } else if (selectionKey.isReadable()) {
-                    //读事件（通过Channel从Buffer中读取出数据）
+
                     readEvent(selector, selectionKey);
+
                 } else if (selectionKey.isWritable()) {
-                    //写事件(向channel中写入数据)
+
                     writeEvent(selectionKey);
+
                 }
             }
         }
@@ -59,7 +63,7 @@ public class NioSocketServer extends Thread {
 
     private static void writeEvent(SelectionKey selectionKey) throws IOException {
         SocketChannel socketChannel = (SocketChannel) selectionKey.channel();
-        NioUtils.doWrite(socketChannel, "你退出了！");
+        NioUtils.doWrite(socketChannel, "you are exit!");
         selectionKey.interestOps(selectionKey.interestOps() - SelectionKey.OP_WRITE);
     }
 

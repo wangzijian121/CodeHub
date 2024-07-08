@@ -1,4 +1,4 @@
-package io.h_nio.selector;
+package socket.nio;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -17,7 +17,6 @@ import java.util.UUID;
  */
 public class NioSocketClient {
 
-    private static UUID uuid = UUID.randomUUID();
     public static void main(String[] args) throws IOException, InterruptedException {
 
         Selector selector = Selector.open();
@@ -26,7 +25,7 @@ public class NioSocketClient {
         channel.configureBlocking(false);
         channel.connect(new InetSocketAddress("127.0.0.1", 8888));
         channel.register(selector, SelectionKey.OP_CONNECT);
-        System.out.println("我的ID：" + uuid);
+        System.out.println("我的ID：" + UUID.randomUUID());
 
 
         while (true) {
@@ -36,12 +35,15 @@ public class NioSocketClient {
                 while (iterator.hasNext()) {
                     SelectionKey selectionKey = iterator.next();
                     iterator.remove();
+
                     //连接到Server端
                     if (selectionKey.isConnectable()) {
                         connectedEvent(selector, channel);
+
                     } else if (selectionKey.isReadable()) {
                         readEvent(selector, channel, selectionKey);
                     } else if (selectionKey.isWritable()) {
+
                         writeEvent(selector, channel, selectionKey);
                     }
                 }
@@ -90,7 +92,7 @@ public class NioSocketClient {
 
     private static void connectedEvent(Selector selector, SocketChannel channel) throws IOException {
         if (channel.finishConnect()) {
-            NioUtils.doWrite(channel, "hello!!我是客户端,我的线程是：" + uuid);
+            NioUtils.doWrite(channel, "hello!!我是客户端,我的线程是：" + UUID.randomUUID());
         }
         channel.register(selector, SelectionKey.OP_READ);
     }
