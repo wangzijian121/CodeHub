@@ -1,8 +1,13 @@
 package a_数组array.数组;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
+ * 数据结构-数组
+ *
  * @author zijian Wang
  */
+@Slf4j(topic = "c.MyArray")
 public class MyArray {
 
     private int[] arr;
@@ -44,14 +49,12 @@ public class MyArray {
 
     private void print() {
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + "\t");
+            log.info("{}\t", arr[i]);
         }
     }
 
     public static void main(String[] args) {
 
-        //指定长度的数组
-        int[] nums = new int[5];
         MyArray myArray = new MyArray(5);
         myArray.insert(111, 0);
         myArray.insert(333, 1);
@@ -59,11 +62,11 @@ public class MyArray {
         myArray.insert(555, 4);
         myArray.insert(666, 4);
         myArray.print();
-        System.out.println("\n获取第4个元素:" + myArray.get(4));
+        log.info("获取第4个元素:{}", myArray.get(4));
         myArray.delete(1);
         myArray.print();
 
-        System.out.println("\n898的索引（应该没有） ：" + myArray.indexOf(898));
-        System.out.println("\n666的索引（应该有） ：" + myArray.indexOf(666));
+        log.info("898的索引（没有这个元素 返回-1） ：{}", myArray.indexOf(898));
+        log.info("666的索引（有这个元素返回索引） ：{}", myArray.indexOf(666));
     }
 }

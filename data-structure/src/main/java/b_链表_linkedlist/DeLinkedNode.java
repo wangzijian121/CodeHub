@@ -34,7 +34,6 @@ public class DeLinkedNode {
         //关联前后的节点
         prevNode.next = nextNode;
         nextNode.prev = prevNode;
-
     }
 
 
@@ -58,27 +57,25 @@ public class DeLinkedNode {
         print(deLinkedNode1);
 
         System.out.println();
-        System.out.println("deLinkedNode1的前驱：" + deLinkedNode1.prev);
-        System.out.println("deLinkedNode1的后继：" + deLinkedNode1.next.value);
+        System.out.println("deLinkedNode 1的前驱：" + deLinkedNode1.prev);
+        System.out.println("deLinkedNode 1的后继：" + deLinkedNode1.next.value);
 
-        System.out.println("deLinkedNode2的前驱：" + deLinkedNode2.prev.value);
-        System.out.println("deLinkedNode2的后继：" + deLinkedNode2.next.value);
+        System.out.println("deLinkedNode 2的前驱：" + deLinkedNode2.prev.value);
+        System.out.println("deLinkedNode 2的后继：" + deLinkedNode2.next.value);
 
-        System.out.println("deLinkedNode3的前驱：" + deLinkedNode3.prev.value);
-        System.out.println("deLinkedNode3的后继：" + deLinkedNode3.next);
-
+        System.out.println("deLinkedNode 3的前驱：" + deLinkedNode3.prev.value);
+        System.out.println("deLinkedNode 3的后继：" + deLinkedNode3.next);
 
         //删除
         delete(deLinkedNode2);
-
+        System.out.println("删除节点2后");
+        print(deLinkedNode1);
         System.out.println();
-        System.out.println("deLinkedNode1的前驱：" + deLinkedNode1.prev);
-        System.out.println("deLinkedNode1的后继：" + deLinkedNode1.next.value);
+        System.out.println("deLinkedNode 1的前驱：" + deLinkedNode1.prev);
+        System.out.println("deLinkedNode 1的后继：" + deLinkedNode1.next.value);
 
-        System.out.println("deLinkedNode3的前驱：" + deLinkedNode3.prev.value);
-        System.out.println("deLinkedNode3的后继：" + deLinkedNode3.next);
-
+        System.out.println("deLinkedNode 3的前驱：" + deLinkedNode3.prev.value);
+        System.out.println("deLinkedNode 3的后继：" + deLinkedNode3.next);
 
     }
-
 }

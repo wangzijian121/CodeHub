@@ -40,8 +40,8 @@ public class LinkedListQueue {
     }
 
     private void print() {
-        System.out.println("\n头：" + header.getValue());
-        System.out.println("\n尾：" + tail.getValue());
+        System.out.println("头：" + header.getValue());
+        System.out.println("尾：" + tail.getValue());
         LinkedNode index=header;
         while (index != null) {
             System.out.print(index.getValue() + "\t");
@@ -55,12 +55,12 @@ public class LinkedListQueue {
         linkedListQueue.push(2);
         linkedListQueue.push(3);
         linkedListQueue.print();
+        System.out.println("push 4");
         linkedListQueue.push(4);
         linkedListQueue.print();
         //消费
-        System.out.println("出队列");
+        System.out.println("pop()出队列操作");
         linkedListQueue.pop();
         linkedListQueue.print();
     }
-
 }

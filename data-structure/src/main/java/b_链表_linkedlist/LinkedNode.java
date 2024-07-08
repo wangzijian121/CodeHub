@@ -1,8 +1,11 @@
 package b_链表_linkedlist;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author zijian Wang
  */
+@Slf4j(topic = "c.LinkedNode")
 public class LinkedNode {
 
     /**

@@ -55,8 +55,6 @@ public class LinkedListStack {
         linkedListStack.push(node2);
         linkedListStack.push(node3);
         linkedListStack.push(node4);
-        //输出
-//        linkedListStack.print();
         System.out.println();
         //pop
         System.out.println("消费了："+linkedListStack.pop());

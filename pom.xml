@@ -31,12 +31,6 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
-   <!--     <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.3.24</version>
-            <scope>compile</scope>
-        </dependency>-->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
@@ -55,12 +49,6 @@
             <version>1.8.3</version>
             <scope>compile</scope>
         </dependency>
-<!--        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>5.3.24</version>
-            <scope>compile</scope>
-        </dependency>-->
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>

@@ -15,10 +15,12 @@ import java.time.LocalTime;
 @Component
 public class MyBeanPostProcessor implements InstantiationAwareBeanPostProcessor {
 
+    private static final String PERSON = "person";
+
     @Override
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
-        if (beanName.equals("person")) {
-            System.out.println("实例化之前执行！ "+LocalTime.now());
+        if (beanName.equals(PERSON)) {
+            System.out.println("实例化之前执行！ " + LocalTime.now());
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -30,8 +32,8 @@ public class MyBeanPostProcessor implements InstantiationAwareBeanPostProcessor 
 
     @Override
     public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) throws BeansException {
-        if (beanName.equals("person")) {
-            System.out.println("postProcessProperties "+LocalTime.now());
+        if (beanName.equals(PERSON)) {
+            System.out.println("postProcessProperties " + LocalTime.now());
         }
         try {
             Thread.sleep(1000);
@@ -43,8 +45,8 @@ public class MyBeanPostProcessor implements InstantiationAwareBeanPostProcessor 
 
     @Override
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
-        if (beanName.equals("person")) {
-            System.out.println("实例化之后执行！ "+LocalTime.now());
+        if (beanName.equals(PERSON)) {
+            System.out.println("实例化之后执行！ " + LocalTime.now());
         }
         try {
             Thread.sleep(1000);
@@ -57,9 +59,9 @@ public class MyBeanPostProcessor implements InstantiationAwareBeanPostProcessor 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
 
-        if (beanName.equals("person")) {
+        if (beanName.equals(PERSON)) {
 
-            System.out.println("初始化前执行！ "+LocalTime.now());
+            System.out.println("初始化前执行！ " + LocalTime.now());
         }
         try {
             Thread.sleep(1000);
@@ -71,9 +73,9 @@ public class MyBeanPostProcessor implements InstantiationAwareBeanPostProcessor 
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        if (beanName.equals("person")) {
+        if (beanName.equals(PERSON)) {
 
-            System.out.println("初始化后执行！ "+LocalTime.now());
+            System.out.println("初始化后执行！ " + LocalTime.now());
         }
         try {
             Thread.sleep(1000);

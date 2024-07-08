@@ -43,14 +43,6 @@ public class ApplicationContextTest {
 
     }
 
-    public static void testAnnotationConfigServletWebServerApplicationContext() {
-        //基于ServletWeb 服务器的容器实现
-        //AnnotationConfigServletWebServerApplicationContext context =
-        //        new AnnotationConfigServletWebServerApplicationContext(WebConfig.class);
-
-//        context.getBean("bean1");
-//        context.getBean("bean2");
-    }
 
 
 }

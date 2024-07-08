@@ -37,7 +37,5 @@ public class ArrayStack {
         //从尾部消费
         s.pop();
         s.print();
-
-
     }
 }

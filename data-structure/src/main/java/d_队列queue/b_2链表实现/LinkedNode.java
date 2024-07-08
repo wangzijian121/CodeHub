@@ -3,6 +3,7 @@ package d_队列queue.b_2链表实现;
 /**
  * @author zijian Wang
  */
+
 public class LinkedNode {
 
     private int value;

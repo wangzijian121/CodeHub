@@ -11,8 +11,6 @@
     </bean>
     <bean class="com.zjyun.spring官方文档.依赖项.自动注入.Person" name="person" autowire="constructor" />
 
-<!--        <constructor-arg name="name" value="wangzijian"/>-->
-<!--        <constructor-arg type="com.zjyun.spring官方文档.依赖项.自动注入.City" value=""/>-->
     <bean class="com.zjyun.spring_ioc.d_依赖项注入.自动注入.NotNullBeanPostProcessor"/>
 </beans>
 
