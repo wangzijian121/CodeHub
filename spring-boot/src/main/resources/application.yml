@@ -9,6 +9,17 @@ likes: [ 1,2,3,4 ]
 
 users: [ { name: zhangsan,age: 18 },{ name: zhangsan2,age: 19 } ]
 
+env: wangzijian
+fileName: xxx.tmp
 
+output: ${env}.ouput.${fileName}
 
+t1: "wangzijian\t\t\t\t 转义了！"
+t2: 原封不动输出wangzijian\t\t\t\t
 #null: ~
+
+datasource:
+  driver: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost/spring
+  username: root
+  password: root
