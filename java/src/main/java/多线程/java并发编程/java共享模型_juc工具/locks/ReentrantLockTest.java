@@ -2,7 +2,6 @@ package 多线程.java并发编程.java共享模型_juc工具.locks;
 
 import javax.annotation.concurrent.GuardedBy;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.IntStream;
 

@@ -2,12 +2,10 @@ package 多线程.java并发编程.java共享模型_不可变.享元模式;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 /**
  * 通过连接池获取数据源连接。

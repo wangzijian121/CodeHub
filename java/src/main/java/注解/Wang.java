@@ -1,7 +1,6 @@
 package 注解;
 
 import java.lang.annotation.*;
-import java.util.stream.IntStream;
 
 /**
  * @author zijian Wang

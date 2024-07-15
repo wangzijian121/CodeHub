@@ -1,7 +1,5 @@
 package zjyun.spring_aop.c_AOP的应用.事务控制_整合mybatis;
 
-import zjyun.spring_aop.c_AOP的应用.事务控制_整合mybatis.mapper.AccountDao;
-import zjyun.spring_aop.c_AOP的应用.事务控制_整合mybatis.model.Account;
 import net.jcip.annotations.NotThreadSafe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +7,8 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
+import zjyun.spring_aop.c_AOP的应用.事务控制_整合mybatis.mapper.AccountDao;
+import zjyun.spring_aop.c_AOP的应用.事务控制_整合mybatis.model.Account;
 
 /**
  * @Description:

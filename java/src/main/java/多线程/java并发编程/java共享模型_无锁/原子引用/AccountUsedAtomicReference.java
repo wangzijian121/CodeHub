@@ -1,6 +1,5 @@
 package 多线程.java并发编程.java共享模型_无锁.原子引用;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.concurrent.atomic.AtomicReference;
 

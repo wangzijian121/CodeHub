@@ -2,7 +2,8 @@ package 多线程.java并发编程.java共享模型_juc工具.线程池.thread_p
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;

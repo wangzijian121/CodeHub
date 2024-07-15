@@ -1,7 +1,5 @@
 package 多线程.java并发编程.java共享模型_juc工具.locks;
 
-import utils.SleepUtils;
-
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 import java.util.stream.IntStream;

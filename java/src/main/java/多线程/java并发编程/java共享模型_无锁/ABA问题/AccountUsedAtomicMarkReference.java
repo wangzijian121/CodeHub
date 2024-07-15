@@ -2,7 +2,6 @@ package 多线程.java并发编程.java共享模型_无锁.ABA问题;
 
 import java.math.BigInteger;
 import java.util.concurrent.atomic.AtomicMarkableReference;
-import java.util.concurrent.atomic.AtomicStampedReference;
 
 
 /**

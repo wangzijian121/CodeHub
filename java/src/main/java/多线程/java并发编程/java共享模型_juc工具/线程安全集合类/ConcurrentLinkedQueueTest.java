@@ -3,7 +3,6 @@ package 多线程.java并发编程.java共享模型_juc工具.线程安全集合
 import utils.SleepUtils;
 import utils.StringUtils;
 
-import java.util.Hashtable;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;

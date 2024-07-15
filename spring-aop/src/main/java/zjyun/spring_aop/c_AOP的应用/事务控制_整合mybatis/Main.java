@@ -1,8 +1,8 @@
 package zjyun.spring_aop.c_AOP的应用.事务控制_整合mybatis;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import zjyun.spring_aop.c_AOP的应用.事务控制_整合mybatis.config.AppConfig;
 import zjyun.spring_aop.c_AOP的应用.事务控制_整合mybatis.model.Account;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * @Description: 事务控制之转账

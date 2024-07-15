@@ -2,8 +2,6 @@ package zjyun.spring_aop.b_AOP表达式的配置;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.lang.reflect.InvocationTargetException;
-
 /**
  * @Description:
  * @Author: Wang Zijian

@@ -1,12 +1,11 @@
 package com.example.j2ee.service;
 
-import com.example.j2ee.dao.VirtualDatabase;
 import com.example.j2ee.bean.Person;
+import com.example.j2ee.dao.VirtualDatabase;
 import com.example.utils.StringUtils;
 
-import javax.servlet.ServletContext;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;

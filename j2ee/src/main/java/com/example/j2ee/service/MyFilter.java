@@ -3,7 +3,6 @@ package com.example.j2ee.service;
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
-import java.util.Random;
 
 /**
  * @author zijian Wang

@@ -3,7 +3,6 @@ package 多线程.java并发编程.java共享模型_juc工具.locks;
 import utils.SleepUtils;
 
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
 /**
