@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: info
+
+likes: [ 1,2,3,4 ]
+
+users: [ { name: zhangsan,age: 18 },{ name: zhangsan2,age: 19 } ]
+
+
+
+#null: ~
