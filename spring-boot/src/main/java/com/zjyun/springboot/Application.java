@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class Application {
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(Application.class, args);
-        Application bean = applicationContext.getBean(Application.class);
-        System.out.println(bean);
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println("🥔"+beanDefinitionName);
+        }
     }
 }
