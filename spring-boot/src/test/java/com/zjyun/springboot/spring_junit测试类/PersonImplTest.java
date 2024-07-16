@@ -1,6 +1,7 @@
 package com.zjyun.springboot.spring_junit测试类;
 
 import com.zjyun.springboot.springboot集成mybatis.AccountMapper;
+import com.zjyun.springboot.springboot集成mybatisplus.AccountMpMapper;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,10 @@ public class PersonImplTest {
     @Autowired
     AccountMapper accountMapper;
 
+
+    @Autowired
+    AccountMpMapper accountMpMapper;
+
     @Test
     public void say() {
         //System.out.println(person.say());
@@ -26,6 +31,11 @@ public class PersonImplTest {
     @Test
     public void getAccount() {
         System.out.println(accountMapper.selectAccountById(1));
+    }
+
+    @Test
+    public void getAccountByMp() {
+        System.out.println(accountMpMapper.selectById(1));
     }
 
 }
