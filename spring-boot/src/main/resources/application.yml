@@ -5,6 +5,7 @@ logging:
   level:
     root: info
 
+
 likes: [ 1,2,3,4 ]
 
 users: [ { name: zhangsan,age: 18 },{ name: zhangsan2,age: 19 } ]
@@ -30,3 +31,18 @@ spring:
     url: jdbc:mysql://localhost:3306/spring?serverTimeZone=UTC
     username: root
     password: root
+
+decorator:
+  datasource:
+    p6spy:
+      # 日志格式
+      log-format: "\ntime:%(executionTime) || sql:%(sql)\n"
+      # 自定义日志类
+      logging: custom
+      custom-appender-class: com.zjyun.springboot.springboot集成MP增删改查.StdoutLogger
+      enable-logging: false
+
+#Mybatis-Plus
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

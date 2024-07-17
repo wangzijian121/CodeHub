@@ -1,0 +1,4 @@
+1721181087752|10|statement|connection 0|url jdbc:p6spy:mysql://localhost:3306/spring?serverTimeZone=UTC|select * from  spring.account where id =?|select * from  spring.account where id =1
+1721181087797|0|statement|connection 0|url jdbc:p6spy:mysql://localhost:3306/spring?serverTimeZone=UTC|SELECT id,name,balance FROM account WHERE id=? |SELECT id,name,balance FROM account WHERE id=1 
+1721182060393|10|statement|connection 0|url jdbc:p6spy:mysql://localhost:3306/spring?serverTimeZone=UTC|SELECT id,name,balance FROM account WHERE id=? |SELECT id,name,balance FROM account WHERE id=1 
+1721182196857|9|statement|connection 0|url jdbc:p6spy:mysql://localhost:3306/spring?serverTimeZone=UTC|SELECT id,name,balance FROM account WHERE id=? |SELECT id,name,balance FROM account WHERE id=1 
