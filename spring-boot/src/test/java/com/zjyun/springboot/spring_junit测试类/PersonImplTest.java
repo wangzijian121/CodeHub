@@ -1,7 +1,8 @@
 package com.zjyun.springboot.spring_junit测试类;
 
+import com.zjyun.springboot.springboot集成mp增删改查.dao.AccountMpCRUDMapper;
 import com.zjyun.springboot.springboot集成mybatis.AccountMapper;
-import com.zjyun.springboot.springboot集成mybatisplus.AccountMpMapper;
+import com.zjyun.springboot.springboot集成mp.AccountMpMapper;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,10 @@ public class PersonImplTest {
     @Autowired
     AccountMpMapper accountMpMapper;
 
+
+    @Autowired
+    AccountMpCRUDMapper accountMpCRUDMapper;
+
     @Test
     public void say() {
         //System.out.println(person.say());
@@ -35,6 +40,10 @@ public class PersonImplTest {
 
     @Test
     public void getAccountByMp() {
+        System.out.println(accountMpMapper.selectById(1));
+    }
+    @Test
+    public void getAccountCRUDByMp() {
         System.out.println(accountMpMapper.selectById(1));
     }
 

@@ -1,4 +1,4 @@
-package com.zjyun.springboot.springboot集成MP增删改查.entity;
+package com.zjyun.springboot.springboot集成mp增删改查.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

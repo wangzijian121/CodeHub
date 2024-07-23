@@ -39,7 +39,7 @@ decorator:
       log-format: "\ntime:%(executionTime) || sql:%(sql)\n"
       # 自定义日志类
       logging: custom
-      custom-appender-class: com.zjyun.springboot.springboot集成MP增删改查.StdoutLogger
+      custom-appender-class: com.zjyun.springboot.springboot集成MP增删改查.config.StdoutLogger
       enable-logging: false
 
 #Mybatis-Plus

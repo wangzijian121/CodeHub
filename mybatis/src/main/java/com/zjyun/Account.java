@@ -1,4 +1,4 @@
-package com.zjyun.springboot.springboot集成mybatisplus;
+package com.zjyun;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

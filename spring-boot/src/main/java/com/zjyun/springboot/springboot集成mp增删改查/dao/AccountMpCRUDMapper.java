@@ -1,7 +1,7 @@
-package com.zjyun.springboot.springboot集成MP增删改查.dao;
+package com.zjyun.springboot.springboot集成mp增删改查.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.zjyun.springboot.springboot集成MP增删改查.entity.Account;
+import com.zjyun.springboot.springboot集成mp.Account;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

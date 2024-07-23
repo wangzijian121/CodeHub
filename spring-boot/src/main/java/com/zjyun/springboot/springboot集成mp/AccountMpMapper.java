@@ -1,7 +1,6 @@
-package com.zjyun.springboot.springboot集成mybatisplus;
+package com.zjyun.springboot.springboot集成mp;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
