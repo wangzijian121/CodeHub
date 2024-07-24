@@ -17,9 +17,16 @@ public class Main {
         try (SqlSession session = sqlSessionFactory.openSession()) {
             AccountMapper mapper = session.getMapper(AccountMapper.class);
             Account account = mapper.selectAccount(3);
+            System.out.println("----");
+            //session.clearCache();
+            Account account2 = mapper.selectAccount(3);
 
             //Account account = session.selectOne("selectAccount", 3);
+            session.commit();
+            session.close();
             System.out.println(account);
+
+            System.out.println(account2);
         }
     }
 }
