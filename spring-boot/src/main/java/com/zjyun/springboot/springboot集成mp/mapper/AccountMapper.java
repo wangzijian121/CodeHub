@@ -2,6 +2,7 @@ package com.zjyun.springboot.springboot集成mp.mapper;
 
 import com.zjyun.springboot.springboot集成mp.entity.Account;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author wangzijian
  * @since 2024-07-25
  */
+@Mapper
 public interface AccountMapper extends BaseMapper<Account> {
 
 }
