@@ -12,8 +12,8 @@ public class Application {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(Application.class, args);
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
 
-        for (String beanDefinitionName : beanDefinitionNames) {
-            System.out.println("🥔"+beanDefinitionName);
-        }
+        //for (String beanDefinitionName : beanDefinitionNames) {
+        //    System.out.println("🥔"+beanDefinitionName);
+        //}
     }
 }

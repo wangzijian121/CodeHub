@@ -9,4 +9,18 @@
 
         select * from account where id = ${id}
     </select>
+    <select id="selectAllAccounts"  resultType="com.zjyun.Account">
+        select * from account
+    </select>
+
+    <select id="selectAccountDynamic" parameterType="int" resultType="com.zjyun.Account">
+        select * from account where id = ${id}
+        <if test="id >5">
+            and 1=1
+        </if>
+    </select>
+
+    <select id="deleteAccount" parameterType="int" resultType="com.zjyun.Account">
+        delete  from account where id = ${id}
+    </select>
 </mapper>
