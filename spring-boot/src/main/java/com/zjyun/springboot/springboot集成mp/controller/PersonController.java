@@ -1,7 +1,8 @@
 package com.zjyun.springboot.springboot集成mp.controller;
 
 import com.zjyun.springboot.springboot集成mp.entity.Account;
-import com.zjyun.springboot.springboot集成mp.service.IAccountService;
+import com.zjyun.springboot.springboot集成mp.entity.Person;
+import com.zjyun.springboot.springboot集成mp.service.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,26 +15,19 @@ import org.springframework.web.bind.annotation.RestController;
  * 前端控制器
  * </p>
  *
- * @author wangzijian
- * @since 2024-07-25
+ * @author 王子健
+ * @since 2024-07-26
  */
 @RestController
-@RequestMapping("/account")
-public class AccountController {
+@RequestMapping("/person")
+public class PersonController {
 
     @Autowired
-    private IAccountService accountService;
-
+    private IPersonService personService;
 
     @GetMapping("/{id}")
-    public Account getAccount(@PathVariable Integer id) {
-        String status = null;
-        Account account = accountService.getById(id);
-        return account;
-    }
-
-    @GetMapping("/streamingQuery")
-    public void streamingQuery() {
-        accountService.streamingQuery();
+    public Person getAccount(@PathVariable Integer id) {
+        Person person = personService.getById(id);
+        return person;
     }
 }
