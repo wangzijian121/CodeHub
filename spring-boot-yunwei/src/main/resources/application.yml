@@ -1,0 +1,56 @@
+spring:
+  profiles:
+    active: test
+
+---
+#开发环境
+server:
+  port: 8080
+
+logging:
+  level:
+    root: info
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring?serverTimeZone=UTC
+    username: root
+    password: root
+
+#Mybatis-Plus
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+---
+#测试环境
+
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring?serverTimeZone=UTC
+    username: root
+    password: root
+server:
+  port: 8081
+
+---
+#生产环境
+spring:
+  config:
+    activate:
+      on-profile: product
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring?serverTimeZone=UTC
+    username: root
+    password: root
+server:
+  port: 8082
