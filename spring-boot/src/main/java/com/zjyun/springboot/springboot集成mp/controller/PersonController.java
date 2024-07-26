@@ -3,12 +3,19 @@ package com.zjyun.springboot.springboot集成mp.controller;
 import com.zjyun.springboot.springboot集成mp.entity.Account;
 import com.zjyun.springboot.springboot集成mp.entity.Person;
 import com.zjyun.springboot.springboot集成mp.service.IPersonService;
+import com.zjyun.springboot.springboot集成mp.service.impl.Person2ServiceImpl;
+import com.zjyun.springboot.springboot集成mp.service.impl.PersonServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <p>
@@ -22,12 +29,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/person")
 public class PersonController {
 
+    /**
+     * 使用Map指定
+     */
     @Autowired
-    private IPersonService personService;
+    private Map<String, IPersonService> personServiceMap;
 
-    @GetMapping("/{id}")
-    public Person getAccount(@PathVariable Integer id) {
-        Person person = personService.getById(id);
-        return person;
-    }
+    /**
+     * 使用Resource 指定
+     */
+    @Resource(type = PersonServiceImpl.class)
+    private IPersonService person1;
+
+    @Resource(type = Person2ServiceImpl.class)
+    private IPersonService person2;
+
+    /**
+     * 使用Qualifier
+     */
+    @Autowired
+    @Qualifier("person2ServiceImpl")
+    private IPersonService person3;
 }
