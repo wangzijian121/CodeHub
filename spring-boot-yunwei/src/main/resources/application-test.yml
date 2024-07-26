@@ -1,0 +1,9 @@
+#开发环境
+server:
+  port: 8083
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring?serverTimeZone=UTC
+    username: root
+    password: root
