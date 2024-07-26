@@ -1,6 +1,10 @@
 spring:
   profiles:
     active: dev
+    group:
+      "dev": devMysql,devRedis
+      "product": productMysql,productRedis
+      "test": testMysql,testRedis
 ---
 #开发环境
 server:
