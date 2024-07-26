@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>groupId</groupId>
-    <artifactId>spring-boot</artifactId>
+    <artifactId>spring-boot-mybatis</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot</name>
-    <description>spring-boot</description>
+    <name>spring-boot-mybatis</name>
+    <description>spring-boot-mybatis</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

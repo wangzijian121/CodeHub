@@ -18,7 +18,8 @@
     <module>spring-ioc</module>
     <module>spring-mvc</module>
     <module>spring-aop</module>
-    <module>spring-boot</module>
+    <module>spring-boot-mybatis</module>
+    <module>spring-boot-base</module>
     <module>mybatis</module>
 </modules>
     <properties>
