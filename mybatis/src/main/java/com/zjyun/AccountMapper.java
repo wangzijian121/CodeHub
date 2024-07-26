@@ -1,9 +1,6 @@
 package com.zjyun;
 
-import org.apache.ibatis.annotations.CacheNamespace;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Update;
-import org.apache.ibatis.cache.impl.PerpetualCache;
 import org.apache.ibatis.jdbc.SQL;
 
 import java.util.List;

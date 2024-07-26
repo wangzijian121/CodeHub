@@ -1,7 +1,7 @@
 package com.zjyun.springboot.springboot集成mp.mapper;
 
-import com.zjyun.springboot.springboot集成mp.entity.Account;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zjyun.springboot.springboot集成mp.entity.Account;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

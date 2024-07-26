@@ -2,9 +2,11 @@ package com.zjyun.springboot.springboot集成mp.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import lombok.*;
+import java.io.Serializable;
 
 /**
  * <p>
