@@ -1,0 +1,6 @@
+- mybatis-plus
+- mysql
+- lombok
+- logback
+- 日志拆分
+- 配置分组、分环境
