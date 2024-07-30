@@ -4,10 +4,15 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>base</groupId>
     <artifactId>m1</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>m1</name>
     <description>m1</description>
     <packaging>jar</packaging>
+    <parent>
+        <groupId>base</groupId>
+        <artifactId>spring-boot-base</artifactId>
+        <version>1.0.1</version>
+    </parent>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
