@@ -1,11 +1,25 @@
 server:
   port: 8080
 
+  endpoint:
+    info:
+      enabled: true
 logging:
   level:
     root: info
 
 spring:
+  application:
+    name: springboot-base
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:9999
+        #springbootClient-是否启用
+        enabled: true
+        # springbootAdmin 服务端用户名密码
+        username: admin
+        password: 123456
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/spring?serverTimeZone=UTC
@@ -16,3 +30,16 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+# springbootClient 打开客户端 Actuator 的监控
+management:
+  endpoints:
+    web:
+      exposure:
+        # 开放所有端点
+        include: "*"
+  # 关闭redis 健康监视
+  health:
+    redis:
+      enabled: false
