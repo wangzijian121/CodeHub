@@ -36,3 +36,19 @@ management:
   health:
     redis:
       enabled: false
+
+#日志拆分
+logging:
+  level:
+    root: info
+    g1: debug
+    g2: info
+  group:
+    g1: com.zjyun.springboot.controller,com.zjyun.springboot.service
+    g2: com.zjyun.springboot.entity
+  file:
+    name: logs/server.log
+  logback:
+    rollingpolicy:
+      max-file-size: 50MB
+      file-name-pattern: logs/server.%d{yyyy-MM-dd}.%i.log
