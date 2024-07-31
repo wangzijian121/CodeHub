@@ -11,6 +11,19 @@ http://maven.apache.org/ASSEMBLY/2.0.0 ">
         <format>tar.gz</format>
         <format>dir</format>
     </formats>
+    <moduleSets>
+        <moduleSet>
+            <useAllReactorProjects>true</useAllReactorProjects>
+<!--            <includes>-->
+<!--                <include>base:m1</include>-->
+<!--                <include>base:m2</include>-->
+<!--            </includes>-->
+            <binaries>
+                <outputDirectory>lib</outputDirectory>
+                <unpack>false</unpack>
+            </binaries>
+        </moduleSet>
+    </moduleSets>
 
     <!--依赖jar包以及项目打包文件存储文件-->
     <dependencySets>

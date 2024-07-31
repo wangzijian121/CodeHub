@@ -5,8 +5,8 @@
     <groupId>base</groupId>
     <artifactId>m1</artifactId>
     <version>1.0.1</version>
-    <name>m1</name>
-    <description>m1</description>
+    <name>base</name>
+    <description>base</description>
     <packaging>jar</packaging>
     <parent>
         <groupId>base</groupId>

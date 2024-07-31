@@ -2,17 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>base</groupId>
+    <groupId>groupId</groupId>
     <artifactId>m1</artifactId>
-    <version>1.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>m1</name>
     <description>m1</description>
-    <packaging>jar</packaging>
-    <parent>
-        <groupId>base</groupId>
-        <artifactId>spring-boot-base</artifactId>
-        <version>1.0.1</version>
-    </parent>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -55,7 +49,7 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-  <!--          <plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
@@ -71,7 +65,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>
         </plugins>
     </build>
 
