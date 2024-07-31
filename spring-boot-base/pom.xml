@@ -3,18 +3,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>base</groupId>
+    <groupId>com.base</groupId>
     <artifactId>spring-boot-base</artifactId>
     <version>1.0.1</version>
 
-    <name>spring-boot-base</name>
-    <description>spring-boot-base</description>
     <packaging>pom</packaging>
 
     <modules>
         <module>m1</module>
         <module>m2</module>
         <module>base</module>
+        <!--assembly必须在最后-->
         <module>assembly</module>
     </modules>
     <properties>
@@ -22,7 +21,20 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.6.12</spring-boot.version>
+
         <spring-boot-admin.version>2.6.8</spring-boot-admin.version>
+        <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+        <maven-assembly-plugin.version>3.2.0</maven-assembly-plugin.version>
+        <maven-shade-plugin.version>3.2.2</maven-shade-plugin.version>
+        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+        <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
+        <rpm-maven-plugion.version>2.2.0</rpm-maven-plugion.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <maven.deploy.skip>false</maven.deploy.skip>
+
+        <com.base.m1.version>${project.version}</com.base.m1.version>
+        <com.base.m2.version>${project.version}</com.base.m2.version>
+        <com.base.base.version>${project.version}</com.base.base.version>
     </properties>
 
     <dependencies>
@@ -73,6 +85,7 @@
             <artifactId>logback-classic</artifactId>
         </dependency>
     </dependencies>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -88,6 +101,22 @@
                 <version>${spring-boot-admin.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!--模块-->
+            <dependency>
+                <groupId>com.base</groupId>
+                <artifactId>base</artifactId>
+                <version>${com.base.base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.base</groupId>
+                <artifactId>m1</artifactId>
+                <version>${com.base.m1.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.base</groupId>
+                <artifactId>m2</artifactId>
+                <version>${com.base.m2.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -121,49 +150,81 @@
     </profiles>
 
     <build>
-        <!--指定多环境的资源路径-->
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
+        <finalName>base-${project.version}</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>rpm-maven-plugin</artifactId>
+                    <version>${rpm-maven-plugion.version}</version>
+                    <inherited>false</inherited>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <testSource>${java.version}</testSource>
+                        <testTarget>${java.version}</testTarget>
+                    </configuration>
+                    <version>${maven-compiler-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${maven-assembly-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${maven-dependency-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>${maven-gpg-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <!--指定maven编译版本-->
+                <artifactId>maven-gpg-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>UTF-8</encoding>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
+            <!--编译插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <skip>true</skip><!--not skip compile test classes-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--版本管理-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
                 <version>2.17.1</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.4.1</version>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <finalName>xxxxx</finalName>
-                            <descriptors>
-                                <descriptor>assembly/src/main/assembly/assembly.xml</descriptor>
-                            </descriptors>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

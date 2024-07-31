@@ -5,5 +5,7 @@
 - lombok✅
 - logback✅
 - 日志拆分✅
-- 配置分组、分环境
-- springbootAdmin-客户端
+- 配置分组、分环境✅
+- springbootAdmin-客户端✅
+- versions-maven-plugin版本管理插件✅
+- assembly 多模块打包
