@@ -19,7 +19,6 @@
     <module>spring-mvc</module>
     <module>spring-aop</module>
     <module>spring-boot-mybatis</module>
-    <module>spring-boot-base</module>
     <module>spring-boot-admin</module>
     <module>spring-boot-yunwei</module>
     <module>mybatis</module>
