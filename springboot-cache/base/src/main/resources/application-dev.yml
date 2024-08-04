@@ -21,6 +21,28 @@ spring:
       port: 6379
       host: 127.0.0.1
 
+# jetCache
+jetcache:
+  statIntervalMinutes: 15
+  areaInCacheName: false
+  local:
+    default:
+      type: linkedhashmap
+      keyConvertor: fastjson
+  remote:
+    default:
+      type: redis
+      keyConvertor: fastjson2
+      broadcastChannel: projectA
+      valueEncoder: java
+      valueDecoder: java
+      poolConfig:
+        minIdle: 5
+        maxIdle: 20
+        maxTotal: 50
+      host: 127.0.0.1
+      port: 6379
+
 #Mybatis-Plus
 mybatis-plus:
   configuration:

@@ -1,9 +1,9 @@
-package com.zjyun.springboot.service.impl;
+package com.zjyun.springboot.service.impl.base;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zjyun.springboot.enums.Status;
-import com.zjyun.springboot.service.IBaseService;
+import com.zjyun.springboot.service.base.IBaseService;
 import com.zjyun.springboot.utils.Result;
 
 import java.text.MessageFormat;

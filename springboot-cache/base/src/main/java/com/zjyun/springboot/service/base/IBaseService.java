@@ -1,4 +1,4 @@
-package com.zjyun.springboot.service;
+package com.zjyun.springboot.service.base;
 
 import com.zjyun.springboot.enums.Status;
 import com.zjyun.springboot.utils.Result;
