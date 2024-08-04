@@ -1,0 +1,18 @@
+#默认端口
+server:
+  port: 8080
+  endpoint:
+    info:
+      enabled: true
+  #环境组
+  profiles:
+    #    active: @profile.active@
+    active: dev
+    group:
+      "dev": dev
+      "prod": prod
+      "test": test
+
+mybatis-plus:
+  configuration:
+    local-cache-scope: SESSION
