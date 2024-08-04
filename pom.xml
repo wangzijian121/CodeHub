@@ -18,9 +18,10 @@
     <module>spring-ioc</module>
     <module>spring-mvc</module>
     <module>spring-aop</module>
-    <module>spring-boot-mybatis</module>
-    <module>spring-boot-admin</module>
-    <module>spring-boot-yunwei</module>
+    <module>springboot-mybatis</module>
+    <module>springboot-admin</module>
+    <module>springboot-yunwei</module>
+    <module>springboot-cache</module>
     <module>mybatis</module>
 </modules>
     <properties>

@@ -32,6 +32,8 @@ spring:
     username: root
     password: root
 
+
+
 decorator:
   datasource:
     p6spy:
