@@ -22,6 +22,7 @@
     <module>springboot-admin</module>
     <module>springboot-yunwei</module>
     <module>springboot-cache</module>
+    <module>springboot-custom-starter</module>
     <module>mybatis</module>
 </modules>
     <properties>

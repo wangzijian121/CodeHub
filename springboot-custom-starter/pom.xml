@@ -3,15 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.base</groupId>
-    <artifactId>springboot-cache</artifactId>
+    <groupId>com.zjyun.start</groupId>
+    <artifactId>springboot-custom-starter</artifactId>
     <version>1.0.1</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>base</module>
-        <!--assembly必须在最后-->
-        <module>assembly</module>
+<!--        <module>starter</module>-->
+        <module>runner</module>
     </modules>
     <properties>
         <!--项目版本-->
@@ -60,8 +59,8 @@
             </dependency>
             <!--模块引用-->
             <dependency>
-                <groupId>com.base</groupId>
-                <artifactId>base</artifactId>
+                <groupId>com.zjyun.start</groupId>
+                <artifactId>starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!--依赖引用-->
@@ -90,7 +89,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>base-${project.version}</finalName>
+        <finalName>zjyun-spring-boot-starter-${project.version}</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
