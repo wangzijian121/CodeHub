@@ -1,0 +1,20 @@
+#默认端口
+server:
+  port: 8080
+
+spring:
+  #  程序名
+  application:
+    name: springboot-base【开发环境】
+  # 数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.56.103:3307/t_db?useUnicode=true&characterEncoding=UTF8&allowMultiQueries=true&rewriteBatchedStatements=true
+    username: root
+    password: 123456
+
+#Mybatis-Plus
+#mybatis-plus:
+#  configuration:
+#    local-cache-scope: SESSION
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
