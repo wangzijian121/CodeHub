@@ -9,14 +9,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
 /**
- * 线程池
+ * 自定义ThreadPoolExecutor 创建线程池 不使用支持的Executors
  *
  * @author zijian Wang
  */
 @Slf4j(topic = "c.ThreadPoolExecutorTest")
 public class ThreadPoolExecutorTest {
     public static void main(String[] args) {
-
 
         final AtomicInteger mThreadNum = new AtomicInteger(1);
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, 5, 50L,
@@ -27,11 +26,10 @@ public class ThreadPoolExecutorTest {
                     return thread;
                 },
                 new ThreadPoolExecutor.DiscardPolicy());
-
         List<Callable<String>> tasks = new ArrayList<>();
+
         IntStream.range(0, 10).forEach(x -> {
             Task task = new Task();
-//            threadPoolExecutor.submit(task);//通过submit 获取返回结果
             tasks.add(task);
         });
 

@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zjyun.springboot.enums.Status;
 import com.zjyun.springboot.service.IBaseService;
 import com.zjyun.springboot.utils.Result;
+import org.springframework.stereotype.Service;
 
 import java.text.MessageFormat;
 
@@ -13,7 +14,7 @@ import java.text.MessageFormat;
  * @Author: Wang Zijian
  * @Date: 2024/8/1
  */
-
+@Service
 public class BaseServiceImpl<M extends BaseMapper<T>, T> extends ServiceImpl<M, T> implements IBaseService {
 
     @Override
