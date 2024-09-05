@@ -13,12 +13,12 @@ public class OrdersServiceImplTest {
     @Test
     public void generateAndInsert() {
         System.out.println("顺序写入测试：");
-        ordersService.generateAndInsert(2000000);
+        ordersService.generateAndInsert(1000000);
     }
 
     @Test
     public void generateAndConcurrentInsert() throws InterruptedException {
-        System.out.println("并发写入测试,并发度：3");
-        ordersService.generateAndConcurrentInsert(2000000);
+        System.out.println("并发写入测试,并发度：4");
+        ordersService.generateAndConcurrentInsert(10000000);
     }
 }

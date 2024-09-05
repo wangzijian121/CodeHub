@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
-@TableName("t_order")
+@TableName("order_1")
 public class Order {
     @TableId("order_id")
     private String orderId;
