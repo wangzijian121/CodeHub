@@ -24,7 +24,7 @@
         <!-- 引入所有涉及的子模块依赖 -->
         <dependency>
             <groupId>com.base</groupId>
-            <artifactId>base</artifactId>
+            <artifactId>springboot-cache-base</artifactId>
             <version>1.0.1</version>
         </dependency>
     </dependencies>

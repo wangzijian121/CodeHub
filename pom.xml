@@ -24,7 +24,8 @@
     <module>springboot-cache</module>
     <module>springboot-custom-starter</module>
     <module>mybatis</module>
-    <module>sharding-proxy</module>
+    <module>mysql-sharding</module>
+    <module>mysql-read-write-splitting</module>
 </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

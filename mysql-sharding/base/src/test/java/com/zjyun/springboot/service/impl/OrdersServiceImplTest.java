@@ -13,7 +13,7 @@ public class OrdersServiceImplTest {
     @Test
     public void generateAndInsert() {
         System.out.println("顺序写入测试：");
-        ordersService.generateAndInsert(1000000);
+        ordersService.generateAndInsert(100);
     }
 
     @Test

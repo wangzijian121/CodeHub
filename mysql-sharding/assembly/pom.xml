@@ -9,7 +9,7 @@
 
     <parent>
         <groupId>com.base</groupId>
-        <artifactId>sharding-proxy</artifactId>
+        <artifactId>mysql-sharding</artifactId>
         <version>1.0.1</version>
     </parent>
 

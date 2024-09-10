@@ -1,0 +1,34 @@
+mode:
+  type: Standalone
+  repository:
+    type: JDBC
+dataSources:
+  ds_write:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.56.101:3306/db3?allowPublicKeyRetrieval=TRUE
+    username: root
+    password: root
+
+  ds_read:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.56.102:3306/db3?allowPublicKeyRetrieval=TRUE
+    username: root
+    password: root
+
+rules:
+  - !READWRITE_SPLITTING
+    dataSources:
+      readwrite_ds:
+        writeDataSourceName: ds_write
+        readDataSourceNames:
+          - ds_read
+        transactionalReadQueryStrategy: PRIMARY
+        loadBalancerName: random
+    loadBalancers:
+      random:
+        type: RANDOM
+  - !SINGLE
+    tables:
+      - "*.*"
