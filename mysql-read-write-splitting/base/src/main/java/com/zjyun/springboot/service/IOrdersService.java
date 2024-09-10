@@ -17,5 +17,5 @@ public interface IOrdersService extends IService<Order> {
 
     void generateAndInsert(int count);
 
-    void  generateAndConcurrentInsert(int count) throws ExecutionException, InterruptedException;
+    void select();
 }
