@@ -1,21 +1,19 @@
 package com.zjyun.springboot.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zjyun.springboot.entity.Order;
 import com.zjyun.springboot.mapper.OrdersMapper;
 import com.zjyun.springboot.service.IOrdersService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zjyun.springboot.service.ITask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.CountDownLatch;
 import java.util.stream.IntStream;
 
 import static com.zjyun.springboot.util.OrderGenerator.generateRandomOrder;

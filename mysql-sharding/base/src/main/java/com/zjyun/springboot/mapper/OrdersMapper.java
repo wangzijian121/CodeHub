@@ -1,7 +1,7 @@
 package com.zjyun.springboot.mapper;
 
-import com.zjyun.springboot.entity.Order;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zjyun.springboot.entity.Order;
 
 /**
  * <p>

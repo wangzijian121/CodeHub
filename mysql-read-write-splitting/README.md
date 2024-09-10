@@ -1,1 +1,0 @@
-基于Springboot脚手架的mysql读写分离demo。
