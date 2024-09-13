@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author zijian Wang
  */
-@Slf4j(topic = "c.Demo")
+@Slf4j(topic = "c.数据类型.Demo")
 public class WaitAndNotifyTest {
     final static WaitAndNotifyTest WAIT_AND_NOTIFY_TEST = new WaitAndNotifyTest();
 

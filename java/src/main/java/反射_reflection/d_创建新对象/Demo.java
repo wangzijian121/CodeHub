@@ -20,7 +20,7 @@ public class Demo {
 
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException {
 
-        String className = "反射_reflection.demo.d_创建新对象.Demo";
+        String className = "反射_reflection.demo.d_创建新对象.数据类型.Demo";
         Class cls = Class.forName(className);
         Constructor constructor = cls.getConstructor(Integer.TYPE, Integer.TYPE);
         try {

@@ -7,7 +7,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * @author zijian Wang
  */
-@Slf4j(topic = "c.Demo")
+@Slf4j(topic = "c.数据类型.Demo")
 public class LockInterruptibly {
 
     private final static ReentrantLock lock = new ReentrantLock();
