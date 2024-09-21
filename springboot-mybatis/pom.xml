@@ -35,7 +35,7 @@
         </dependency>
         <!--mybatis-->
         <!--       <dependency>
-                   <groupId>org.mybatis.spring.boot</groupId>
+                   <zk>org.mybatis.spring.boot</zk>
                    <artifactId>mybatis-spring-boot-starter</artifactId>
                    <version>2.2.2</version>
                </dependency>-->
