@@ -5,7 +5,7 @@ import org.openjdk.jol.info.ClassLayout;
 /**
  * @author zijian Wang
  */
-public class Objectheader {
+public class ObjectHeader {
     public static void main(String[] args) {
         MyObject object = new MyObject();
         //普通对象header 12字节（8字节的Mark Word+4字节的klass Pointer)
@@ -17,12 +17,10 @@ public class Objectheader {
         System.out.println("------------数组对象----------------");
         int[] arrs = new int[5];
         System.out.println(ClassLayout.parseInstance(arrs).toPrintable());
-
     }
 }
 
 class MyObject {
     private String name;
     private int age;
-
 }

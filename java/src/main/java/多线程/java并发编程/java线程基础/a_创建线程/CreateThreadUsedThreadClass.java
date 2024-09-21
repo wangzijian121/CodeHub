@@ -11,16 +11,14 @@ import lombok.extern.slf4j.Slf4j;
 public class CreateThreadUsedThreadClass {
 
     public static void main(String[] args) {
-        log.debug("main-wangzijian");
-        //创建线程对象
-        Thread t = new Thread() {
-            @Override
-            public void run() {
-                log.debug("wangzijian");
-            }
-        };
-        t.setName("我的线程");
-        //运行线程
-        t.start();
+
+        Thread thread1 = new Thread(() -> System.out.println("thread1"));
+
+        Thread thread2 = new Thread(() -> {
+
+            System.out.println("thread2");
+        });
+        thread1.start();
+        thread2.start();
     }
 }

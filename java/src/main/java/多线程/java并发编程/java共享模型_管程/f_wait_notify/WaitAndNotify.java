@@ -5,13 +5,13 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.concurrent.TimeUnit;
 
 /**
- * wait & notify
+ * wait & notify 先wait后被唤醒
  *
  * @author zijian Wang
  */
 @Slf4j(topic = "c.数据类型.Demo")
-public class WaitAndNotifyTest {
-    final static WaitAndNotifyTest WAIT_AND_NOTIFY_TEST = new WaitAndNotifyTest();
+public class WaitAndNotify {
+    final static WaitAndNotify WAIT_AND_NOTIFY_TEST = new WaitAndNotify();
 
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(() -> {
@@ -27,7 +27,6 @@ public class WaitAndNotifyTest {
         });
 
         Thread t2 = new Thread(() -> {
-
             log.info("线程2....");
             synchronized (WAIT_AND_NOTIFY_TEST) {
                 try {

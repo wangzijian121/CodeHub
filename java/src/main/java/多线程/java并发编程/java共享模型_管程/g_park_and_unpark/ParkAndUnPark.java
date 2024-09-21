@@ -5,7 +5,7 @@ import java.util.concurrent.locks.LockSupport;
 /**
  * @author zijian Wang
  */
-public class ParkDemo {
+public class ParkAndUnPark {
 
 /*    public static void main(String[] args) {
 
@@ -24,8 +24,6 @@ public class ParkDemo {
     public static void main(String[] args) {
 
         Thread t1 = new Thread(() -> {
-
-
             System.out.println("线程1开启！");
             try {
                 Thread.sleep(5000);
@@ -36,7 +34,7 @@ public class ParkDemo {
             System.out.println("线程1完成了unpark!");
         });
         t1.start();
-        //先执行unpark,后续执行的park 并不会
+        //先执行unpark,后续执行的 park 并不会
         LockSupport.unpark(t1);
         System.out.println("主线程执行了unpark！");
     }

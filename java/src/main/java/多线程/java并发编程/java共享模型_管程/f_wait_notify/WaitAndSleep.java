@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author zijian Wang
  */
 @Slf4j(topic = "c.WaitAndSleepTest")
-public class WaitAndSleepTest {
+public class WaitAndSleep {
     static final Object obj = new Object();
 
     public static void main(String[] args) throws InterruptedException {

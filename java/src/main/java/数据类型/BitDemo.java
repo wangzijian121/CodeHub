@@ -1,13 +1,17 @@
 package 数据类型;
 
+import com.sun.org.glassfish.gmbal.Description;
+
+import java.util.Vector;
+
 /**
  * @Description:
  * @Author: Wang Zijian
  * @Date: 2024/9/13
  */
 public class BitDemo {
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
         //左移
         //1: 0000 0001
         System.out.println("1左移1次：" + (1 << 1));//0000 0010 = 2
