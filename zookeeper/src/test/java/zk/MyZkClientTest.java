@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * zookeeper client 的【增删改查】测试
+ * zookeeper client 的【增删改查】测试，常用API方法。
  */
 public class MyZkClientTest {
     private ZooKeeper zk;
@@ -36,7 +36,7 @@ public class MyZkClientTest {
 
     @Test
     public void checkNodeExist() throws InterruptedException, KeeperException {
-        System.out.println("是否存在：" + zk.exists("/wangzijian", true));
+        System.out.println("是否存在：" + zk.exists("/wangzijian123", true));
         System.out.println("是否存在：" + zk.exists("/asdfasdf", false));
     }
 
