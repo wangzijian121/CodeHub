@@ -96,7 +96,7 @@ class ClusterExecutor implements ICluster {
         Node node = cluster.getMap().get(id);
         node.setStatus(true);
         node.setZkClient(new ZkClient());
-        node.getZkClient().createNode(Cluster.ROOT_PATH + "/node_" + id, node.toString(), CreateMode.EPHEMERAL);
+        node.getZkClient().createNode(Cluster.ROOT_PATH + "/node_" + id, node.getHost()+":"+node.getPort(), CreateMode.EPHEMERAL);
         System.out.println("启动节点成功！");
     }
 
