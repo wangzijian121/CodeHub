@@ -25,8 +25,9 @@ public class MyZkClientTest {
 
     @Test
     public void createNode() throws InterruptedException, KeeperException {
-        zk.create("/wangzijian/wangzijian12345", "hello-world".getBytes(),
-                ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        String s = zk.create("/wangzijian/wangzijian", "hello-world".getBytes(),
+                ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT_SEQUENTIAL);
+        System.out.println(s);
     }
 
     @Test
