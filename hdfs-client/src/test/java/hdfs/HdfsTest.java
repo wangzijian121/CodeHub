@@ -1,13 +1,11 @@
 package hdfs;
 
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.LocatedFileStatus;
-import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.fs.RemoteIterator;
+import org.apache.hadoop.fs.*;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * @Description:
@@ -55,6 +53,7 @@ public class HdfsTest {
     @Test
     public void downLoad() throws IOException {
         fileSystem.moveToLocalFile(new Path("/wangzijian.txt"), new Path("D://"));
+        fileSystem.close();
     }
 
     /**
@@ -63,14 +62,68 @@ public class HdfsTest {
     @Test
     public void uploadFile() throws IOException {
         fileSystem.moveFromLocalFile(new Path("D://123.txt"), new Path("/"));
+        fileSystem.close();
     }
 
     /**
      * 删除文件
+     *
      * @throws IOException
      */
     @Test
     public void deleteFile() throws IOException {
         fileSystem.delete(new Path("/123.txt"), true);
+        fileSystem.close();
+    }
+
+
+    /**
+     * 移动文件
+     *
+     * @throws IOException
+     */
+    @Test
+    public void moveFile() throws IOException {
+        fileSystem.rename(new Path("/wang121.txt"), new Path("/wangzijian_rename.txt"));
+        fileSystem.close();
+    }
+
+    /**
+     * 查看文件内容
+     *
+     * @throws IOException
+     */
+    @Test
+    public void catFile() throws IOException {
+        RemoteIterator<LocatedFileStatus> files = fileSystem.listFiles(new Path("/wangzijian_rename.txt"), false);
+        while (files.hasNext()) {
+            LocatedFileStatus fileStatus = files.next();
+            System.out.println("========" + fileStatus.getPath() + "=========");
+            System.out.println(fileStatus.getPermission());
+            System.out.println(fileStatus.getOwner());
+            System.out.println(fileStatus.getGroup());
+            System.out.println(fileStatus.getLen());
+            System.out.println(fileStatus.getModificationTime());
+            System.out.println(fileStatus.getReplication());
+            System.out.println(fileStatus.getBlockSize());
+            System.out.println(fileStatus.getPath().getName());
+
+            BlockLocation[] blockLocations = fileStatus.getBlockLocations();
+            String context = Arrays.toString(blockLocations);
+            System.out.println(context);
+        }
+        fileSystem.close();
+    }
+
+    /**
+     * 判断指定的是文件夹还是文件
+     *
+     * @throws IOException
+     */
+    @Test
+    public void isFile() throws IOException {
+        System.out.println("文件：" + fileSystem.isFile(new Path("/wangzijian_rename.txt")));
+        System.out.println("文件夹：" + fileSystem.isDirectory(new Path("/wangzijian_rename.txt")));
+        fileSystem.close();
     }
 }
