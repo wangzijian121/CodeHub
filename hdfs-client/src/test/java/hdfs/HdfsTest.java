@@ -61,7 +61,7 @@ public class HdfsTest {
      */
     @Test
     public void uploadFile() throws IOException {
-        fileSystem.moveFromLocalFile(new Path("D://123.txt"), new Path("/"));
+        fileSystem.moveFromLocalFile(new Path("D://456.txt"), new Path("/"));
         fileSystem.close();
     }
 
