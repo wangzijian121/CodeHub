@@ -32,7 +32,6 @@ public class MyWordCount {
         // Specify various job-specific parameters
         job.setJobName("王子健-WordCount");
         job.setCombinerClass(IntSumReducer.class);
-
         job.setMapperClass(WordCountMapper.class);
         job.setReducerClass(WordCountReduce.class);
         job.setOutputKeyClass(Text.class);

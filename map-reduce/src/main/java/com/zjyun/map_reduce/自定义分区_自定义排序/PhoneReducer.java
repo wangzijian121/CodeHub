@@ -22,4 +22,3 @@ public class PhoneReducer extends Reducer<FlowBean, Text, Text, Text> {
         context.write(values.iterator().next(), text);
     }
 }
-
