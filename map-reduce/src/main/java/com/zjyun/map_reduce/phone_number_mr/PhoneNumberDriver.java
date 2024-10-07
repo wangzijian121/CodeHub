@@ -1,19 +1,13 @@
 package com.zjyun.map_reduce.phone_number_mr;
 
-import com.zjyun.map_reduce.wordcount.WordCountMapper;
-import com.zjyun.map_reduce.wordcount.WordCountReduce;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.mapreduce.lib.reduce.IntSumReducer;
 
-import javax.xml.crypto.Data;
 import java.io.IOException;
-import java.util.Date;
 
 /**
  * @Description:

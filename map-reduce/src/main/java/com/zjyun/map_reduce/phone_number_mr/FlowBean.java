@@ -1,7 +1,8 @@
 package com.zjyun.map_reduce.phone_number_mr;
 
-import lombok.*;
-import org.apache.hadoop.io.LongWritable;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.apache.hadoop.io.Writable;
 
 import java.io.*;
