@@ -31,15 +31,18 @@ public class MyWordCount {
         job.setJarByClass(MyWordCount.class);
         // Specify various job-specific parameters
         job.setJobName("王子健-WordCount");
+        //
         job.setCombinerClass(IntSumReducer.class);
+
         job.setMapperClass(WordCountMapper.class);
-        job.setReducerClass(WordCountReduce.class);
+        //job.setReducerClass(WordCountReduce.class);
+
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 
         //提交任务，然后轮询进度，直至任务完成
-        FileInputFormat.addInputPath(job, new Path("D://wangzijian.txt"));
-        FileOutputFormat.setOutputPath(job, new Path("D://wangzijian_output"));
+        FileInputFormat.addInputPath(job, new Path("D:\\hadoop-input\\wordcount\\wang.txt"));
+        FileOutputFormat.setOutputPath(job, new Path("D:\\hadoop-output\\"+System.currentTimeMillis()));
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
         //job.waitForCompletion(true);
