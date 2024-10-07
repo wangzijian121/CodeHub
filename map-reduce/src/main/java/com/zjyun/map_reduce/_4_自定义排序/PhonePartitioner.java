@@ -1,4 +1,4 @@
-package com.zjyun.map_reduce.自定义分区_自定义排序;
+package com.zjyun.map_reduce._4_自定义排序;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Partitioner;

@@ -1,11 +1,15 @@
-package com.zjyun.map_reduce.phone_number_mr;
+package com.zjyun.map_reduce._3_自定义分区;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.io.WritableComparable;
 
-import java.io.*;
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
 
 /**
  * @Description: 自定义序列化类
@@ -14,6 +18,7 @@ import java.io.*;
  */
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
 public class FlowBean implements Writable {
 
@@ -44,24 +49,7 @@ public class FlowBean implements Writable {
 
     @Override
     public String toString() {
-        return downFlow + "\t" + upFlow + "\t" + sumFlow;
+        return upFlow+ "\t" + downFlow  + "\t" + sumFlow;
     }
 
-    /**
-     * 测试序列化
-     *
-     * @param args
-     * @throws IOException
-     */
-    public static void main(String[] args) throws IOException {
-        FlowBean flowBean = new FlowBean();
-        flowBean.setUpFlow(100);
-        flowBean.setDownFlow(100);
-        flowBean.setSumFlow(200);
-        OutputStream outputStream = new FileOutputStream(new File("D://wang.txt"));
-        flowBean.write(new DataOutputStream(outputStream));
-
-        FlowBean read = flowBean.read(new DataInputStream(new FileInputStream(new File("D://wang.txt"))));
-        System.out.println(read);
-    }
 }

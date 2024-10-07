@@ -1,4 +1,4 @@
-package com.zjyun.map_reduce.自定义分区_自定义排序;
+package com.zjyun.map_reduce._3_自定义分区;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -11,14 +11,14 @@ import java.io.IOException;
  * @Author: Wang ZiJian
  * @Date: 2024/10/3
  */
-public class PhoneMapper extends Mapper<LongWritable, Text, FlowBean, Text> {
+public class PhoneMapper extends Mapper<LongWritable, Text, Text,FlowBean> {
 
     private FlowBean flowBean = new FlowBean();
 
     private Text text = new Text();
 
     @Override
-    protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, FlowBean, Text>.Context context) throws IOException, InterruptedException {
+    protected void map(LongWritable key, Text value, Mapper<LongWritable, Text,  Text,FlowBean>.Context context) throws IOException, InterruptedException {
 
         String line = value.toString();
         String[] splitItems = line.split("\t");
@@ -33,6 +33,6 @@ public class PhoneMapper extends Mapper<LongWritable, Text, FlowBean, Text> {
         flowBean.setDownFlow(downFlow);
         flowBean.setSumFlow(upFlow + downFlow);
 
-        context.write(flowBean, text);
+        context.write(text,flowBean);
     }
 }

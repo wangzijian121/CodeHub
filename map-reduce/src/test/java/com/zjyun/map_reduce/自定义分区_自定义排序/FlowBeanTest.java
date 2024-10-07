@@ -1,6 +1,7 @@
 package com.zjyun.map_reduce.自定义分区_自定义排序;
 
 
+import com.zjyun.map_reduce._3_自定义分区.FlowBean;
 import org.junit.Test;
 
 public class FlowBeanTest {

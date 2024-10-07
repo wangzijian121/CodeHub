@@ -1,4 +1,4 @@
-package com.zjyun.map_reduce.phone_number_mr;
+package com.zjyun.map_reduce._2_phone_number_mr;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;

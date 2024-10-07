@@ -1,5 +1,6 @@
-package com.zjyun.map_reduce.自定义分区_自定义排序;
+package com.zjyun.map_reduce._4_自定义排序;
 
+import com.zjyun.map_reduce._3_自定义分区.PhonePartitioner;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
@@ -36,8 +37,6 @@ public class PhoneJob {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
 
-        job.setPartitionerClass(PhonePartitioner.class);
-        job.setNumReduceTasks(4);
         //提交任务，然后轮询进度，直至任务完成
         FileInputFormat.addInputPath(job, new Path("D:\\hadoop-input\\phone\\phone_data.txt"));
         long l = System.currentTimeMillis();

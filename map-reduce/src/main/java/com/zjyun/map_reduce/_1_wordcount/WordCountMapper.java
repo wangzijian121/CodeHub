@@ -1,4 +1,4 @@
-package com.zjyun.map_reduce.wordcount;
+package com.zjyun.map_reduce._1_wordcount;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
