@@ -1,4 +1,4 @@
-package com.zjyun.map_reduce.自定义output输出规范;
+package com.zjyun.map_reduce._6_自定义output输出规范;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.mapreduce.Reducer;

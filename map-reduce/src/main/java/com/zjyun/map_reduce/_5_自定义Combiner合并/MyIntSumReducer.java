@@ -1,4 +1,4 @@
-package com.zjyun.map_reduce.自定义Combiner合并;
+package com.zjyun.map_reduce._5_自定义Combiner合并;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.mapreduce.Reducer;

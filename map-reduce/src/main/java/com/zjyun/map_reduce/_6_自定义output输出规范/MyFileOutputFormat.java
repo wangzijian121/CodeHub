@@ -1,4 +1,4 @@
-package com.zjyun.map_reduce.自定义output输出规范;
+package com.zjyun.map_reduce._6_自定义output输出规范;
 
 import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileSystem;
@@ -18,12 +18,12 @@ import java.io.IOException;
  */
 public class MyFileOutputFormat extends FileOutputFormat<Text, IntWritable> {
     @Override
-    public RecordWriter<Text, IntWritable> getRecordWriter(TaskAttemptContext job) throws IOException, InterruptedException {
+    public RecordWriter<Text, IntWritable> getRecordWriter(TaskAttemptContext job) throws IOException {
         MyRecordWriter myRecordWriter = new MyRecordWriter(job);
         return myRecordWriter;
     }
 
-    class MyRecordWriter extends RecordWriter<Text, IntWritable> {
+    static class MyRecordWriter extends RecordWriter<Text, IntWritable> {
 
         TaskAttemptContext job;
         FSDataOutputStream wang;
@@ -46,7 +46,7 @@ public class MyFileOutputFormat extends FileOutputFormat<Text, IntWritable> {
         }
 
         @Override
-        public void close(TaskAttemptContext context) throws IOException, InterruptedException {
+        public void close(TaskAttemptContext context) throws IOException {
             wang.close();
             lisi.close();
         }

@@ -1,4 +1,4 @@
-package com.zjyun.map_reduce.自定义output输出规范;
+package com.zjyun.map_reduce._5_自定义Combiner合并;
 
 
 import org.apache.hadoop.conf.Configuration;
@@ -30,18 +30,17 @@ public class MyWordCount {
         job.setJarByClass(MyWordCount.class);
         // Specify various job-specific parameters
         job.setJobName("王子健-WordCount");
+        //
+        job.setCombinerClass(MyIntSumReducer.class);
 
         job.setMapperClass(WordCountMapper.class);
         //job.setReducerClass(WordCountReduce.class);
-
 
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 
         //提交任务，然后轮询进度，直至任务完成
         FileInputFormat.addInputPath(job, new Path("D:\\hadoop-input\\wordcount\\wang.txt"));
-
-        job.setOutputFormatClass(MyFileOutputFormat.class);
         FileOutputFormat.setOutputPath(job, new Path("D:\\hadoop-output\\"+System.currentTimeMillis()));
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);

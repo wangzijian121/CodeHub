@@ -1,4 +1,4 @@
-package com.zjyun.map_reduce.使用mr实现3个表join;
+package com.zjyun.map_reduce._8_使用mr实现3个表join;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

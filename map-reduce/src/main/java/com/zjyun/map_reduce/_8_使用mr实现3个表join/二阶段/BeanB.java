@@ -1,4 +1,4 @@
-package com.zjyun.map_reduce.使用mr实现3个表join.一阶段;
+package com.zjyun.map_reduce._8_使用mr实现3个表join.一阶段;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

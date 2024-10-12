@@ -1,6 +1,6 @@
-package com.zjyun.map_reduce.使用mr实现3个表join.二阶段;
+package com.zjyun.map_reduce._8_使用mr实现3个表join.二阶段;
 
-import com.zjyun.map_reduce.使用mr实现3个表join.一阶段.BeanB;
+import com.zjyun.map_reduce._8_使用mr实现3个表join.一阶段.BeanB;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;

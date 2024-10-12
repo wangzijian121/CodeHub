@@ -1,4 +1,4 @@
-package com.zjyun.map_reduce.使用mr实现2个表join;
+package com.zjyun.map_reduce._7_使用mr实现2个表join;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
