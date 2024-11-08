@@ -1,4 +1,4 @@
-package com.zjyun.map_reduce._1_wordcount;
+package com.zjyun.map_reduce._9_文件存储格式;
 
 
 import org.apache.hadoop.conf.Configuration;
@@ -35,7 +35,7 @@ public class MyWordCount {
         job.setCombinerClass(IntSumReducer.class);
 
         job.setMapperClass(WordCountMapper.class);
-        job.setReducerClass(WordCountReduce.class);
+        //job.setReducerClass(WordCountReduce.class);
 
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
@@ -45,6 +45,5 @@ public class MyWordCount {
         FileOutputFormat.setOutputPath(job, new Path("D:\\hadoop-output\\"+System.currentTimeMillis()));
 
         System.exit(job.waitForCompletion(true) ? 0 : 1);
-        //job.waitForCompletion(true);
     }
 }

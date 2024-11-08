@@ -16,28 +16,34 @@
 
 <!-- Put site-specific property overrides in this file. -->
 <configuration>
-    <configuration>
-        <property>
-            <name>fs.defaultFS</name>
-            <value>hdfs://hadoop01:9000</value>
-        </property>
-
-        <property>
-            <name>io.file.buffer.size</name>
-            <value>131072</value>
-        </property>
-        <property>
-            <name>hadoop.http.staticuser.user</name>
-            <value>root</value>
-        </property>
-        <property>
-            <name>hdfs</name>
-            <value>org.apache.hadoop.hdfs.DistributedFileSystem</value>
-        </property>
-        <property>
-            <name>hadoop.http.staticuser.user</name>
-            <value>root</value>
-        </property>
-    </configuration>
-
+    <!--默认文件系统的名称-->
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://mycluster</value>
+    </property>
+    <property>
+        <name>io.file.buffer.size</name>
+        <value>131072</value>
+    </property>
+    <property>
+        <name>hadoop.http.staticuser.user</name>
+        <value>root</value>
+    </property>
+    <property>
+        <name>fs.trash.interval</name>
+        <value>10</value>
+    </property>
+    <property>
+        <name>fs.trash.checkpoint.interval</name>
+        <value>30</value>
+    </property>
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/data/tmp/</value>
+    </property>
+    <!--故障转移的zk地址-->
+    <property>
+        <name>ha.zookeeper.quorum</name>
+        <value>hadoop01:2181,hadoop02:2181,hadoop03:2181</value>
+    </property>
 </configuration>

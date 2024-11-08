@@ -4,7 +4,11 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.*;
 import org.junit.Test;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.ByteBuffer;
 import java.util.Arrays;
 
 /**
@@ -125,5 +129,18 @@ public class HdfsTest {
         System.out.println("文件：" + fileSystem.isFile(new Path("/wangzijian_rename.txt")));
         System.out.println("文件夹：" + fileSystem.isDirectory(new Path("/wangzijian_rename.txt")));
         fileSystem.close();
+    }
+
+    @Test
+    public void testCreate() throws IOException {
+        FSDataOutputStream fsDataOutputStream = fileSystem.create(new Path("/wangzijian_create"));
+        fsDataOutputStream.write("wangzijian".getBytes());
+    }
+
+    @Test
+    public void testRead() throws IOException {
+        DataInputStream fsDataInputStream = fileSystem.open(new Path("/wangzijian_create"));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fsDataInputStream));
+        System.out.println(bufferedReader.readLine());
     }
 }
