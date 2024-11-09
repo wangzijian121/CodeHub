@@ -30,7 +30,7 @@ public class WordCountJob extends Configured implements Tool {
         Configuration configuration = new Configuration();
         //远程提交时，需要指定本地的jar文件
         //configuration.set("mapreduce.job.jar","D:\\项目\\王子健-Java\\Java\\map-reduce\\target\\map-reduce-1.0-SNAPSHOT.jar");
-        System.setProperty("HADOOP_USER_NAME", "root");
+        //System.setProperty("HADOOP_USER_NAME", "hdfs");
         //创建一个新的Job
         Job job = Job.getInstance(configuration);
 
