@@ -1,0 +1,12 @@
+//定义一个实体类
+{
+  "type": "enum",
+  "name": "ColorEnums",
+  "namespace": "example.avro",
+  "doc": "颜色枚举类",
+  "symbols": [
+    "red",
+    "green",
+    "yellow"
+  ]
+}
