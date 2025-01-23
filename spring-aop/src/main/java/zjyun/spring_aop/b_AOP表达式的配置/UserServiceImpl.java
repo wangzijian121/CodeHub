@@ -16,8 +16,8 @@ public class UserServiceImpl implements IService {
     @Pointcut
     public void s1() {
         System.out.println("@Pointcut s1....");
-        int i = 10 / 0;//模拟异常
-
+        //模拟异常
+        int i = 10 / 0;
     }
 
     public void s2() {

@@ -8,7 +8,7 @@ public class ReadFileTop100Lines {
 
     public static void main(String[] args) {
 
-        readTop100Lines("D:\\项目\\王子健-Java\\Java\\map-reduce\\order.txt");
+        readTop100Lines("D:\\项目\\王子健-Java\\Java\\map-reduce\\user.txt");
     }
 
     private static void readTop100Lines(String filePath) {

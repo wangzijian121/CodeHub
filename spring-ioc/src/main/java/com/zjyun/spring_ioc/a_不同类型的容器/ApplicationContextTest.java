@@ -37,12 +37,7 @@ public class ApplicationContextTest {
 
     public static void testAnnotationConfigApplicationContext() {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-
         System.out.println(context.getBean("bean1"));
         System.out.println(context.getBean("bean2"));
-
     }
-
-
-
 }

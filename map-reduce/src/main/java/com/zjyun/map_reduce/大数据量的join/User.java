@@ -11,7 +11,7 @@ public class User {
 
         try (FileWriter fileWriter = new FileWriter("user.txt")) {
             Random random = new Random();
-            for (int i = 1; i <=5000_000_00L; i++) {
+            for (int i = 1; i <=3000_000_00L; i++) {
                 String empNo = String.valueOf(i); // emp_no (3 letters + 3 digits)
                 String firstName = generateRandomChineseSurnames(1) + generateRandomAlphaNumeric(5); // first_name (3 letters)
                 String lastName = generateRandomAlphaNumeric(5); // last_name (3 letters)
