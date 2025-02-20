@@ -5,11 +5,8 @@ import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
-import org.apache.zookeeper.data.Stat;
-import 基于zookeeper的故障转移.ZkClient;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 /**

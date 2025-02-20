@@ -2,7 +2,6 @@ package 基于zookeeper的分布式锁;
 
 import lombok.Data;
 import org.apache.zookeeper.KeeperException;
-import org.apache.zookeeper.ZooKeeper;
 
 import java.io.IOException;
 import java.util.stream.IntStream;
