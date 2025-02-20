@@ -94,7 +94,7 @@
             <scope>provided</scope>
             <excludes>
                 <!--排除assembly模块的jar包-->
-                <exclude>com.base:assembly</exclude>
+                <exclude>com.zjyun:assembly</exclude>
             </excludes>
         </dependencySet>
         <dependencySet>
@@ -112,7 +112,7 @@
             <outputDirectory>libs</outputDirectory>
             <scope>runtime</scope>
             <excludes>
-                <exclude>com.base:assembly</exclude>
+                <exclude>com.zjyun:assembly</exclude>
             </excludes>
         </dependencySet>
     </dependencySets>
@@ -121,9 +121,9 @@
         <moduleSet>
             <includes>
                 <!--配置子模块，按groupId:artifactId配置，然后根据各子模块依赖的顺序排列-->
-                <include>com.base:base</include>
-                <include>com.base:m1</include>
-                <include>com.base:m2</include>
+                <include>com.zjyun:base</include>
+                <include>com.zjyun:m1</include>
+                <include>com.zjyun:m2</include>
             </includes>
             <binaries>
                 <outputDirectory>libs</outputDirectory>

@@ -5,18 +5,12 @@
     <artifactId>runner</artifactId>
     <packaging>jar</packaging>
     <parent>
-        <groupId>com.zjyun.start</groupId>
+        <groupId>com.zjyun</groupId>
         <artifactId>springboot-custom-starter</artifactId>
         <version>1.0.1</version>
     </parent>
     <dependencies>
 
-        <!--自定义-->
-        <dependency>
-            <groupId>com.zjyun.start</groupId>
-            <artifactId>zjyun-spring-boot-starter</artifactId>
-            <version>1.0.1</version>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

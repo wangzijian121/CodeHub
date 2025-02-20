@@ -61,7 +61,7 @@
             </dependency>
             <!--模块引用-->
             <dependency>
-                <groupId>com.base</groupId>
+                <groupId>com.zjyun</groupId>
                 <artifactId>base</artifactId>
                 <version>${project.version}</version>
             </dependency>

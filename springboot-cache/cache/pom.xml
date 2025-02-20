@@ -2,11 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>base</artifactId>
+    <groupId>com.zjyun</groupId>
+    <artifactId>cache</artifactId>
     <version>1.0.1</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <parent>
-        <groupId>com.base</groupId>
+        <groupId>com.zjyun</groupId>
         <artifactId>springboot-cache</artifactId>
         <version>1.0.1</version>
     </parent>

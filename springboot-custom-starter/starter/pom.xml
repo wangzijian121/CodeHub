@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>zjyun-spring-boot-starter</artifactId>
+    <artifactId>starter</artifactId>
     <packaging>jar</packaging>
     <parent>
-        <groupId>com.zjyun.start</groupId>
+        <groupId>com.zjyun</groupId>
         <artifactId>springboot-custom-starter</artifactId>
         <version>1.0.1</version>
     </parent>

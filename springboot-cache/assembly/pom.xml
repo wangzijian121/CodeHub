@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.base</groupId>
+    <groupId>com.zjyun</groupId>
     <artifactId>assembly</artifactId>
     <version>1.0.1</version>
 
     <parent>
-        <groupId>com.base</groupId>
+        <groupId>com.zjyun</groupId>
         <artifactId>springboot-cache</artifactId>
         <version>1.0.1</version>
     </parent>
@@ -20,14 +20,14 @@
         <skipDeploy>true</skipDeploy>
     </properties>
 
-    <dependencies>
-        <!-- 引入所有涉及的子模块依赖 -->
+<!--    <dependencies>
+        &lt;!&ndash; 引入所有涉及的子模块依赖 &ndash;&gt;
         <dependency>
-            <groupId>com.base</groupId>
+            <groupId>com.zjyun</groupId>
             <artifactId>springboot-cache-base</artifactId>
             <version>1.0.1</version>
         </dependency>
-    </dependencies>
+    </dependencies>-->
 
     <build>
         <plugins>

@@ -1,5 +1,0 @@
-2024-07-29 10:20:24.729 ERROR 399448 --- [http-nio-8081-exec-3] c.z.s.controller.AccountController       : wangzijian-error
-2024-07-29 10:20:24.920 DEBUG 399448 --- [http-nio-8081-exec-4] c.z.s.controller.AccountController       : wangzijian-debug
-2024-07-29 10:20:24.920  INFO 399448 --- [http-nio-8081-exec-4] c.z.s.controller.AccountController       : wangzijian-info
-2024-07-29 10:20:24.920  WARN 399448 --- [http-nio-8081-exec-4] c.z.s.controller.AccountController       : wangzijian-warn
-2024-07-29 10:20:24.920 ERROR 399448 --- [http-nio-8081-exec-4] c.z.s.controller.AccountController       : wangzijian-error
