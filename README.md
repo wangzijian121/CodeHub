@@ -81,7 +81,7 @@ jvm 模块大部分原来来自于《深入理解Java虚拟机 第3版》 中的
 - Balking犹豫模式
 - 生产者-消费者模式
 
-## hadoop
+## [hadoop](hadoop)
 ### [hadoop-rpc](hadoop-rpc)
 - 使用hadoop-RPC中的server与Client通信
 
@@ -124,8 +124,7 @@ jvm 模块大部分原来来自于《深入理解Java虚拟机 第3版》 中的
 - 分片算法
 - 分片策略
 
-## spring
-
+## [spring](spring)
 ### [spring-ioc](spring-ioc)
 - IOC容器
 - 配置类
@@ -151,7 +150,7 @@ jvm 模块大部分原来来自于《深入理解Java虚拟机 第3版》 中的
 - 监听器Listener
 - 拦截器Interceptor
 
-## springboot
+## [springboot](springboot)
 ###  [springboot-base](springboot-base)
 - springboot base,用来快速开始
 ### [springboot-admin](springboot-admin)
