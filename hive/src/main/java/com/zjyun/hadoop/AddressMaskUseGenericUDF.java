@@ -18,6 +18,7 @@ public class AddressMaskUseGenericUDF extends   GenericUDF{
 
     @Override
     public Object evaluate(DeferredObject[] deferredObjects) throws HiveException {
+  /*
             if (s == null) {
                 return null;
             }
@@ -31,7 +32,8 @@ public class AddressMaskUseGenericUDF extends   GenericUDF{
                     res += array[i];
                 }
             }
-            return new Text(res);
+            return new Text(res);*/
+        return  null;
     }
 
     @Override

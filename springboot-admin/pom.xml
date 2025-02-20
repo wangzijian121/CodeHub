@@ -4,9 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>groupId</groupId>
     <artifactId>springboot-admin</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>spring-boot-admin</name>
     <description>spring-boot-admin</description>
+    <parent>
+        <groupId>com.zjyun</groupId>
+        <artifactId>code-hub</artifactId>
+        <version>1.0.0</version>
+    </parent>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
