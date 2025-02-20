@@ -3,14 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.base</groupId>
+    <groupId>com.zjyun</groupId>
     <artifactId>mysql-sharding</artifactId>
     <description>mysql基于Apache ShardingSphere的分库分表</description>
     <version>1.0.1</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>base</module>
+        <module>mysql-sharding-base</module>
         <!--assembly必须在最后-->
         <module>assembly</module>
     </modules>
@@ -94,7 +94,14 @@
                 <artifactId>shardingsphere-jdbc</artifactId>
                 <version>5.5.0</version>
             </dependency>
-
+            <!-- 父子项目都有lib，防止maven 报check红线 -->
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-test-util</artifactId>
+                <version>5.5.0</version>
+                <scope>system</scope>
+                <systemPath>${project.basedir}/lib/shardingsphere-test-util-5.5.0.jar</systemPath>
+            </dependency>
             <dependency>
                 <groupId>org.yaml</groupId>
                 <artifactId>snakeyaml</artifactId>
