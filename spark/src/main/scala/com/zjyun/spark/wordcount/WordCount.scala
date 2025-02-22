@@ -1,11 +1,10 @@
-package spark
+package com.zjyun.spark.wordcount
 
-import org.apache.log4j.{Logger, PropertyConfigurator}
-import org.apache.spark.rdd.RDD
+import com.zjyun.spark.wordcount.FileUtils.str2FileUtils
+import org.apache.log4j.Logger
 import org.apache.spark.{SparkConf, SparkContext}
-import spark.FileUtils.str2FileUtils
 
-object Test {
+object WordCount {
 
   private def fun2(inputPath: String, outputPath: String) = {
     //System.setProperty("hadoop.home.dir", "D:\\winutils")

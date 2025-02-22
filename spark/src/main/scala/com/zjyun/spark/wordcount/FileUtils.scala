@@ -1,4 +1,4 @@
-package spark
+package com.zjyun.spark.wordcount
 
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FileSystem, Path}
@@ -9,12 +9,12 @@ case class FileUtils(path:String) {
 
   def deletePath= {
     log.info(s"删除！$path")
-    val fileSystem = FileSystem.getLocal(new Configuration())
+    val fileSystem = FileSystem.get(new Configuration())
     val pathDelete = new Path(path)
     if(fileSystem.exists(pathDelete)) fileSystem.delete(pathDelete,true)
   }
 }
 
-object FileUtils {
+object FileUtils{
   implicit def  str2FileUtils(s:String)= new FileUtils(s)
 }
