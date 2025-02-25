@@ -1,4 +1,4 @@
-package com.zjyun.spark.rdd
+package com.zjyun.spark.rdd.转换类算子
 
 import org.apache.spark.{SparkConf, SparkContext}
 
@@ -14,5 +14,6 @@ object RddDistinct {
     value.groupBy(t => t).keys.collect().foreach(x=>print(x+" "))
     println()
     value.groupBy(t => t).map(_._1).collect().foreach(x=>print(x+" "))
+    value.distinct()
   }
 }

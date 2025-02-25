@@ -1,4 +1,4 @@
-package com.zjyun.spark.rdd
+package com.zjyun.spark.rdd.转换类算子
 
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FileSystem, Path}
