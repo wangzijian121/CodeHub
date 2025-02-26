@@ -1,8 +1,6 @@
 package com.zjyun.spark.rdd.转换类算子.访问量top测试
 
-import com.zjyun.spark.utils.Utils.initSc
-import org.apache.spark.rdd.RDD
-import org.apache.spark.{SparkConf, SparkContext}
+import com.zjyun.spark.utils.Utils.getLocalSparkContext
 
 object TestTop {
 
@@ -17,7 +15,7 @@ object TestTop {
    * (laozhang,6)
    */
   def top3 = {
-    val sc = initSc("top3")
+    val sc = getLocalSparkContext("top3")
     val value = sc.textFile("src/main/scala/com/zjyun/spark/rdd/datas/urls.txt")
     //(xiaohe,7) xiaohe 作为key
     val res = value
@@ -32,7 +30,7 @@ object TestTop {
   //每个【专业】中【访问量】最高的top2
   def top2 = {
 
-    val sc = initSc("top2")
+    val sc = getLocalSparkContext("top2")
     val value = sc.textFile("src/main/scala/com/zjyun/spark/rdd/datas/urls.txt")
     val res = value
       .map(line => {

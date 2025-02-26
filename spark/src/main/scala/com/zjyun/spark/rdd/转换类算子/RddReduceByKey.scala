@@ -1,15 +1,14 @@
 package com.zjyun.spark.rdd.转换类算子
 
+import com.zjyun.spark.utils.Utils.getLocalSparkContext
 import org.apache.spark.{SparkConf, SparkContext}
 
 object RddReduceByKey {
 
 
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf()
-    conf.setAppName("test")
-    conf.setMaster("local[*]")
-    val sc = new SparkContext(conf)
+
+    val sc =getLocalSparkContext("RddReduceByKey")
     //名字和成绩
     /*val arr = Array(("小张", 22), ("小张", 25), ("小盖",16), ("小盖",19))
     sc.makeRDD(arr).reduceByKey(_+_).collect().foreach(println)*/
