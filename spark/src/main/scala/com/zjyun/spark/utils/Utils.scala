@@ -7,10 +7,19 @@ case object Utils {
     println(s"内容: $value, 类型: ${value.getClass.getName}")
   }
 
-  def initSc(name: String) = {
+  def getLocalSparkContext(name: String) = {
     val conf = new SparkConf()
-    conf.setMaster("local[*]")
-    conf.setAppName(name)
+      .setAppName(name)
+      .setMaster("local[*]")
+    new SparkContext(conf)
+  }
+
+  def getStandaloneSparkContext(name: String) = {
+    System.setProperty("hadoop.home.dir", "D:\\winutils")
+    val conf = new SparkConf().setMaster("spark://hadoop01:7077")
+      .setAppName(name)
+      //.setJars(Array())
+    //conf.setMaster("local[*]")
     new SparkContext(conf)
   }
 }
