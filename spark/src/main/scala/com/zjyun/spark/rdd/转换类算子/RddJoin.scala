@@ -2,7 +2,7 @@ package com.zjyun.spark.rdd.转换类算子
 
 import com.zjyun.spark.utils.Utils.getLocalSparkContext
 
-object RddCogroup {
+object RddJoin {
 
 
   def main(args: Array[String]): Unit = {
