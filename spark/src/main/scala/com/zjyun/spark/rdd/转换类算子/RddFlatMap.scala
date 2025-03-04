@@ -14,6 +14,6 @@ object RddFlatMap {
     value.flatMap(x => {
       val strings = x.split(" ")
       strings.tail.map((strings.head,_))
-    }).collect().foreach(s=>print(s+" ")) //(张三,100分) (张三,男) (李四,99分) (李四,女)
+    }).foreach(s=>print(s+" ")) //(张三,100分) (张三,男) (李四,99分) (李四,女)
   }
 }

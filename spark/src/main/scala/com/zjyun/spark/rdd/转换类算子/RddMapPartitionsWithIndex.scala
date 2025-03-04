@@ -1,5 +1,6 @@
 package com.zjyun.spark.rdd.转换类算子
 
+import com.zjyun.spark.utils.Utils.getLocalSparkContext
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FileSystem, Path}
 import org.apache.spark.{SparkConf, SparkContext}
@@ -7,9 +8,16 @@ import org.apache.spark.{SparkConf, SparkContext}
 import java.io.PrintWriter
 
 object RddMapPartitionsWithIndex {
+  def main(args: Array[String]): Unit = {
+    val sc = getLocalSparkContext("RddMapPartitionsWithIndex")
+    val arr2 = Array(1, 2, 3, 3, 4, 5, 6, 6, 7, 7, 8, 9)
+    sc.makeRDD(arr2, 3)//3分区
+      .mapPartitionsWithIndex((index, value) => {
+        value.map(("分区:" + index, _))
+      }).groupByKey().foreach(println)
+  }
 
-
-    def main(args: Array[String]): Unit = {
+/*    def main(args: Array[String]): Unit = {
       val conf = new SparkConf()
       conf.setAppName("test")
       conf.setMaster("local[*]")
@@ -33,5 +41,5 @@ object RddMapPartitionsWithIndex {
         fs.close()
         Iterator.empty
       }).collect().foreach(print)
-    }
+    }*/
 }
