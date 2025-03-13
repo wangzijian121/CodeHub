@@ -7,7 +7,7 @@ case object Utils {
     println(s"内容: $value, 类型: ${value.getClass.getName}")
   }
 
-  def getLocalSparkContext(name: String) = {
+  def getLocalSparkContext(name: String):SparkContext = {
     val conf = new SparkConf()
       .setAppName(name)
       .setMaster("local[*]")
