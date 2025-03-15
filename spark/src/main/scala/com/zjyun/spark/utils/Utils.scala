@@ -23,7 +23,7 @@ case object Utils {
     val conf = new SparkConf().setMaster("spark://hadoop01:7077")
       .setAppName(name)
     //.setJars(Array())
-    //conf.setMaster("local[*]")
+    //conf.setMaster("local[*]"
     new SparkContext(conf)
   }
 
