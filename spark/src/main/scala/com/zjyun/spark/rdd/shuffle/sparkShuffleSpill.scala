@@ -14,10 +14,10 @@ object sparkShuffleSpill {
     val sc = spark.sparkContext
 
     // 生成一个大数据集 (1千万条数据)
-    val data = sc.parallelize(1 to 10000000).map(x => (x % 1000, x))
+    val data = sc.parallelize(1 to 10000000,1).map(x => (x % 1000, x))
 
     // 触发 Shuffle 操作 (groupByKey)
-    val grouped = data.groupByKey()
+    val grouped = data.groupByKey(1)
 
     // 计算
     grouped.count()
@@ -58,7 +58,7 @@ object sparkShuffleSpill {
 
   def main(args: Array[String]): Unit = {
 
-    //haveSpill()
-    noSpill
+    haveSpill
+    //noSpill
   }
 }

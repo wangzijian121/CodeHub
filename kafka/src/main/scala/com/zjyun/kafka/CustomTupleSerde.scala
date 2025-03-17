@@ -1,4 +1,4 @@
-package com.zjyun.spark.kafka
+package com.zjyun.kafka
 
 import org.apache.kafka.common.serialization.{Deserializer, Serde, Serializer}
 import java.lang.{Double, Long}

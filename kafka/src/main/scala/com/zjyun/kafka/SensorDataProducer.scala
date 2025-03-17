@@ -1,3 +1,5 @@
+package com.zjyun.kafka
+
 import org.apache.kafka.clients.producer.{Callback, KafkaProducer, ProducerConfig, ProducerRecord, RecordMetadata}
 
 import java.time.LocalDateTime
