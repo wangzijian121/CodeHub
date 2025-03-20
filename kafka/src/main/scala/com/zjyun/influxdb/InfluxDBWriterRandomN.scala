@@ -1,3 +1,5 @@
+package com.zjyun.influxdb
+
 import java.time.Instant
 import java.util.concurrent.{Executors, TimeUnit}
 import com.influxdb.client.InfluxDBClientFactory
@@ -40,9 +42,11 @@ object InfluxDBDemo {
         val timestamp = Instant.now()
         val cacheMap: HashMap[String, Double] = HashMap()
 
-        // 遍历所有传感器写入数据
+         //遍历所有传感器写入数据
         //每次选其中N个
-        sensors.foreach { case (sensorId, sensorType, min: Double, max: Double, step: Double) =>
+         val randomSeq = Random.shuffle(sensors).take(4 + Random.nextInt(4))
+        println("生成测点数："+randomSeq.length)
+        randomSeq.foreach { case (sensorId, sensorType, min: Double, max: Double, step: Double) =>
 
           //取缓存值
           val cacheValue = cacheMap.getOrElseUpdate(sensorId, (max + min) / 2)
