@@ -1,13 +1,13 @@
-package com.zjyun.spark.sql.c_使用dataframe进行查询
+package com.zjyun.spark.sql.b_dataframe
 
 import com.zjyun.spark.utils.Utils.getLocalSparkContext
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SQLContext
 
-object SelectWithSqlApi {
+object DataframeSql {
   def main(args: Array[String]): Unit = {
 
-    val sc = getLocalSparkContext("测试dataframe")
+    val sc = getLocalSparkContext("测试dataframe的SQL功能")
     val sqlSc: SQLContext = new SQLContext(sc)
     import sqlSc.implicits._
 
