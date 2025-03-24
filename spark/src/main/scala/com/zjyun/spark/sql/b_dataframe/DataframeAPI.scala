@@ -1,13 +1,11 @@
 package com.zjyun.spark.sql.b_dataframe
 
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.catalyst.expressions.Upper
-import org.apache.spark.sql.functions.{array_contains, asc_nulls_first, asc_nulls_last, bround, coalesce, col, column, current_date, current_timestamp, date_add, date_sub, explode, expr, get_json_object, initcap, lit, lower, map, months_between, pow, round, size, split, to_date, to_timestamp, udf, upper}
+import org.apache.spark.sql.expressions.{Aggregator, Window}
+import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
-import org.apache.spark.sql.{DataFrame, Row, SparkSession, functions}
+import org.apache.spark.sql.{DataFrame, Encoder, Encoders, Row, SparkSession, functions}
 import org.junit.Test
-
-import scala.reflect.internal.ClassfileConstants.ifnull
 
 case class Student(id: Int, value: String) extends Serializable
 
@@ -300,9 +298,72 @@ class DataframeAPI {
 
     //dataFrame.select(power3Udf(col("num"))).show//将函数应用到  DataFrameAPI 查询
 
-    sparkSession.udf.register("p3",power3(_: Double): Double)//将自定义函数注册到spark-sql
+    sparkSession.udf.register("p3", power3(_: Double): Double) //将自定义函数注册到spark-sql
     //使用spark-sql查询 因为这个函数是在Spark SQL注册的，并且任何Spark SQL 函数或表达式都可以在处理DataFrame时使用
     dataFrame.selectExpr("p3(num)").show
   }
+
+  /**
+   * 聚合分组
+   */
+  @Test
+  def groupTest(): Unit = {
+    val df = getDfWithData
+    //println(df.count())//这是行为操作
+    //df.select(count("*")).show// 求df 的行数
+    //df.select(countDistinct("value")).show //先去重，然后在算出count数量
+    //df.select(approx_count_distinct("value",0.1)).show //可以指定误差的去重计数
+    //
+    //df.select(first("value"),last("value")).show //取第一行和最后一行
+    //
+    //df.select(min("id"),max("id")).show//取最大、最小值
+    //
+    //df.select(sum("id")).show //求和
+    //df.select(sumDistinct("id")).show //去重后进行求和
+    //df.select(avg("id")).show //求平均值
+
+    //df.groupBy("value").count().show//简单分组
+    //df.groupBy("value").agg(count("value"),sum("id")).show //聚合后求组内count 和sum
+    //df.groupBy("value").agg("value"->"count","id"->"sum").show //聚合后使用map进行组内运算`
+    df.show
+    //window 开窗函数  row_number 是窗口内的行号
+    //df.withColumn("window", row_number() over Window.partitionBy("value").orderBy(col("id").desc)).show
+
+  }
+
+  /**
+   * 用户自定义聚合函数-多进 1 出
+   */
+  @Test
+  def sparkUdaf(): Unit = {
+    val df = getDfWithData.select(col("id"))
+    val mySum = new MySum()
+    sparkSession.udf.register("mySum", functions.udaf(mySum))
+    df.selectExpr("mySum(id)").show()
+  }
+
+}
+
+/**
+ * 自定义UDAF
+ */
+class MySum extends Aggregator[Int, Int, Int] {
+  //初始值
+  override def zero: Int = 0
+
+  //每条数据之间的相加逻辑
+  override def reduce(b: Int, a: Int): Int = if (a > 2) b else b + a
+
+  //不同executor 的合并逻辑
+  override def merge(b1: Int, b2: Int): Int = b1 + b2
+
+  //完成之后 的输出逻辑
+  override def finish(reduction: Int): Int = reduction
+
+  //缓冲编码格式
+  override def bufferEncoder: Encoder[Int] = Encoders.scalaInt
+
+  //输出编码格式
+  override def outputEncoder: Encoder[Int] = Encoders.scalaInt
 }
 
