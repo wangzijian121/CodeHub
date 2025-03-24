@@ -1,10 +1,13 @@
 package com.zjyun.spark.sql.b_dataframe
 
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.functions.{col, column, expr, lit}
+import org.apache.spark.sql.catalyst.expressions.Upper
+import org.apache.spark.sql.functions.{array_contains, asc_nulls_first, asc_nulls_last, bround, coalesce, col, column, current_date, current_timestamp, date_add, date_sub, explode, expr, get_json_object, initcap, lit, lower, map, months_between, pow, round, size, split, to_date, to_timestamp, udf, upper}
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
-import org.apache.spark.sql.{DataFrame, Row, SparkSession}
+import org.apache.spark.sql.{DataFrame, Row, SparkSession, functions}
 import org.junit.Test
+
+import scala.reflect.internal.ClassfileConstants.ifnull
 
 case class Student(id: Int, value: String) extends Serializable
 
@@ -162,6 +165,144 @@ class DataframeAPI {
     val newRddPartition = df.repartition(2, col("id")) //按照ID划分成2个分区
     println(newRddPartition.rdd.getNumPartitions) //获取分区数
     df.collect().foreach(println) //driver 端获取df
+  }
+
+  /**
+   * 类型处理-布尔类型
+   */
+  @Test
+  def sparkTypeBoolean(): Unit = {
+
+    val df = getDfWithData
+    df.where(col("id") === 2).show //判断过滤条件 过滤=2的
+    df.where("id = 2 ").show //过滤=2的
+    df.where("id <>2 ").show //过滤不等于2的
+
+    df.where(col("id") > 2).where(col("id") =!= 4).show //and 多条件判断
+    df.where((col("id") === 2).or(col("id") === 4)).show //or 多条件判断
+
+    df.withColumn("is_bigger_then_2", col("id") > 2).where("is_bigger_then_2").show // 判断是否大于2的
+    df.withColumn("is_bigger_then_2", expr("id >2")).where("is_bigger_then_2").show // 判断是否大于2的
+
+  }
+
+  /**
+   * 类型处理-数值类型
+   */
+  @Test
+  def sparkTypeNum(): Unit = {
+    val df: DataFrame = List((1.111, "aaa"), (2.5, "b"), (3.888, "cc"), (4.4444, "cc")).toDF("id", "value")
+    df.select(pow(col("id"), 2).alias("res")).show //取平方
+    df.select(col("id") + 1).alias("res").show //+1
+    df.select(col("id") - 1).alias("res").show //-1
+    df.select(round(col("id"), 2)).show //保留两位小数（向上取整）
+    df.select(round(col("id"), 0)).show //向下取整
+    df.select(bround(col("id"), 0)).show //向下取整
+  }
+
+  /**
+   * 类型处理-字符串类型
+   */
+  @Test
+  def sparkTypeString(): Unit = {
+    val df: DataFrame = List((1.111, "a wangzijian"), (2.222, "li si ")).toDF("id", "value")
+    df.select(initcap(col("value"))).show //首字母大写
+    df.select(lower(col("value"))).show //全部转小写
+    df.select(upper(col("value"))).show //全部转大写
+    df.select(col("value").contains("li")).show //判断是否包含
+  }
+
+  /**
+   * 日期类型
+   */
+  @Test
+  def sparkTypeDate(): Unit = {
+    val dateDF = sparkSession.range(10)
+      .withColumn("today", current_date())
+      .withColumn("now", current_timestamp())
+    dateDF.select(date_sub(col("today"), 5)).show //减5天
+    dateDF.select(date_add(col("today"), 5)).show //加5天
+    dateDF.select(months_between(lit("2017-11-14"), lit("2017-07-14"))).show(1) //月度之间的间隔
+
+    val dateFormat = "yyyy-MM-dd"
+    val dateTimeFormat = "yyyy-MM-dd HH:mm:ss.SSSS"
+    sparkSession.range(1)
+      .select(to_date(lit("2025-03-24"), dateFormat)).show(1) //按照格式化的时间处理时间数据
+
+    sparkSession.range(1)
+      .select(to_timestamp(lit("2025-03-24 14:15:44.0000"), dateTimeFormat)).show(1) //精确到时分秒
+  }
+
+  /**
+   * 空值处理
+   */
+  @Test
+  def sparkTypeNull(): Unit = {
+    val df: DataFrame = List((1, null), (2, "aaa"), (3, "null"), (4, "bbb")).toDF("id", "value")
+    df.select(coalesce(col("id"), col("value"))).show // 返回第一个非空的列
+
+    df.selectExpr("ifnull(value,'空值')").show //1.如果为空，则取第二个值
+    df.selectExpr("nullif('a','a')").show(1) //2.如果两个值相等，则返回null
+    df.selectExpr("nvl(null,'aaa')").show(1) //3. 如果第一个值为null则返回第二个值，否则返回第一个
+    df.selectExpr("nvl2('a','aaa','bbb')").show(1) //4. 如果第一个值不为null则返回第二个值，否则返回第三个值
+
+    df.na.drop.show //删除带有null的行
+    df.na.drop("all", Seq("id", "value")).show //删除id列带有null的行
+    df.na.drop("any", Seq("id", "value")).show //删除id列带有null的行
+    df.na.fill("this is null").show() //使用文本填充null值
+    df.na.replace("value", Map("null" -> "0", "aaa" -> "a", "" -> "default")).show // 使用replace 替换
+
+    df.orderBy(asc_nulls_first("value")).show //将null值放在前面 正序排列
+    df.orderBy(asc_nulls_last("value")).show //将null值放在后面 正序排列
+  }
+
+  /**
+   * 复杂类型-数组
+   */
+  @Test
+  def sparkTypeArray(): Unit = {
+    val df: DataFrame = List((1, "a,b,c"), (2, "b,b,b"), (3, "c,c,c")).toDF("id", "value")
+    df.select(split(col("value"), ",").alias("res")).show //按逗号分割 指定列下的所有值
+    df.select(size(split(col("value"), ",").alias("res"))).show //按逗号分割 获取数组长度
+    df.select(array_contains(split(col("value"), ",").alias("res"), "b")).show //按逗号分割 判断数组中是否包含某值
+    df.select(split(col("value"), ",").alias("res")).show
+    //炸开字段中数组
+    df.withColumn("split_value", split(col("value"), ","))
+      .withColumn("exploded", explode(col("split_value"))).show
+    val resDF = df.select(map(col("id"), col("value")).alias("res")) //将指定字段转为map类型
+    resDF.selectExpr("res[1]").show //根绝key查询value
+  }
+
+  /**
+   * 复杂类型-json
+   */
+  @Test
+  def sparkTypeJson(): Unit = {
+
+    val jsonDF = sparkSession.range(1).selectExpr(
+      """
+      '{"myJSONKey" : {"myJSONValue" : [1, 2, 3]}}' as jsonString""")
+    jsonDF.select(
+      get_json_object(col("jsonString"), "$.myJSONKey.myJSONValue"
+      ).alias("res")).show //获取json中的数据
+  }
+
+  /**
+   * 复杂类型-用户自定义函数
+   */
+  @Test
+  def sparkTypeUdf(): Unit = {
+    val dataFrame = sparkSession.range(5).toDF("num")
+
+    def power3(number: Double): Double = number * number * number
+
+    val power3Udf = udf(power3(_: Double): Double) //注册为udf
+
+    //dataFrame.select(power3Udf(col("num"))).show//将函数应用到  DataFrameAPI 查询
+
+    sparkSession.udf.register("p3",power3(_: Double): Double)//将自定义函数注册到spark-sql
+    //使用spark-sql查询 因为这个函数是在Spark SQL注册的，并且任何Spark SQL 函数或表达式都可以在处理DataFrame时使用
+    dataFrame.selectExpr("p3(num)").show
   }
 }
 
