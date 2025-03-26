@@ -342,6 +342,44 @@ class DataframeAPI {
     df.selectExpr("mySum(id)").show()
   }
 
+  /**
+   * join 连接
+   */
+  @Test
+  def joinTest(): Unit = {
+    val order = sparkSession.sparkContext.parallelize(Seq(
+        (1, 101, 2500), (2, 102, 1110), (3, 103, 500), (4, 102, 400), (5, 999, 888)))
+      .toDF("orderId", "userId", "money")
+
+    val customer = sparkSession.sparkContext.parallelize(Seq(
+        (101, "用户101"), (102, "用户102"), (103, "用户103"), (104, "用户104"),
+        (105, "用户105"), (106, "用户106")))
+      .toDF("userId", "name")
+    //order.show
+    //customer.show
+
+    //1.内部联接-inner join
+    //customer.join(order,"userId").show
+
+    //2.笛卡儿积 MxN
+    //customer.crossJoin(order).show
+
+    //3.左外链接-left outer join
+    //customer.join(order, Seq("userId"), "left").show
+
+    //4.右外链接-right outer join
+    //customer.join(order, Seq("userId"), "right").show
+
+    //5.全外连接-full outer join
+    //customer.join(order, Seq("userId"), "full").show
+
+    //6.左半连接-left semi join
+    //customer.join(order, Seq("userId"), "left_semi").show
+
+    //7.左反连接-left anti join
+    customer.join(order, Seq("userId"), "left_anti").show
+
+  }
 }
 
 /**
