@@ -1,4 +1,4 @@
-package com.zjyun.spark.wordcount
+package com.zjyun.spark.rdd.wordcount
 
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FileSystem, Path}

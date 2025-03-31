@@ -1,6 +1,6 @@
-package com.zjyun.spark.wordcount
+package com.zjyun.spark.rdd.wordcount
 
-import com.zjyun.spark.wordcount.FileUtils.str2FileUtils
+import FileUtils.str2FileUtils
 import org.apache.log4j.Logger
 import org.apache.spark.{SparkConf, SparkContext}
 
