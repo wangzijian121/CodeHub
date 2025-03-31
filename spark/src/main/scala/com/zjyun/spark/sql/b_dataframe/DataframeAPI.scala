@@ -380,6 +380,57 @@ class DataframeAPI {
     customer.join(order, Seq("userId"), "left_anti").show
 
   }
+
+  @Test
+  def catalogTest(): Unit = {
+    val dataFrame = Seq((1, 1, 111), (2, 2, 222)).toDF("orderId", "userId", "money")
+    dataFrame.createOrReplaceTempView("order")
+
+    /**
+     * +--------+---------+-----------+
+     * |database|tableName|isTemporary|
+     * +--------+---------+-----------+
+     * |        |    order|       true|
+     * +--------+---------+-----------+
+     */
+    sparkSession.sql("SHOW TABLES").show() // 显示当前数据库中的表
+
+    // 获取默认数据库
+    println("默认数据库:"+sparkSession.catalog.currentDatabase)
+
+    // 列出所有数据库
+    sparkSession.catalog.listDatabases().select("locationUri").show
+
+    // 切换到指定当前数据库
+    sparkSession.catalog.setCurrentDatabase("default")
+    // 列出当前数据库中的表
+    sparkSession.catalog.listTables().show()
+
+    //// 注册外部托管表（元数据指向文件路径）
+    sparkSession.catalog.createTable("my_catalog_table",
+      "demo-ouput.parquet/xxx.parquet", "parquet")
+
+    sparkSession.catalog.listTables().show()
+    //// 删除表
+    sparkSession.catalog.dropTempView("order")  // 删除临时视图
+
+    // 列出当前数据库中的表
+    sparkSession.catalog.listTables().show()
+
+    // 注册 UDF
+    sparkSession.udf.register("my_upper", (s: String) => s.toUpperCase)
+
+    // 列出所有函数
+    sparkSession.catalog.listFunctions().show()
+}
+  @Test
+  def sparkTaskTest(): Unit = {
+    val df1 = sparkSession.range(1, 1000)
+    val dataFrame = df1.groupBy("id").count()
+    println(dataFrame.rdd.getNumPartitions)
+    dataFrame.collect
+    Thread.sleep(Long.MaxValue)
+  }
 }
 
 /**
