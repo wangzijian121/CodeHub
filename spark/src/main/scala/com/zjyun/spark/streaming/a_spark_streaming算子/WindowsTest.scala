@@ -1,4 +1,4 @@
-package com.zjyun.spark.streaming.spark_streaming算子
+package com.zjyun.spark.streaming.a_spark_streaming算子
 
 import org.apache.spark._
 import org.apache.spark.streaming._
@@ -15,7 +15,6 @@ object WindowsTest {
     val conf = new SparkConf().setMaster("local[2]").setAppName("sparkStreaming")
     val ssc = new StreamingContext(conf, Seconds(5))
     val receiverInputDStream: ReceiverInputDStream[String] = ssc.socketTextStream("localhost", 6666)
-
     receiverInputDStream.window(Seconds(30)).foreachRDD((rdd, time) => {
       rdd.map(line => {
           val lineSplit = line.split(":")

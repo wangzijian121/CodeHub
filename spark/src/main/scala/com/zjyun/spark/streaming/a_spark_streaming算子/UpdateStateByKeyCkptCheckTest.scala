@@ -1,4 +1,4 @@
-package com.zjyun.spark.streaming.spark_streaming算子
+package com.zjyun.spark.streaming.a_spark_streaming算子
 
 import org.apache.spark._
 import org.apache.spark.streaming._
