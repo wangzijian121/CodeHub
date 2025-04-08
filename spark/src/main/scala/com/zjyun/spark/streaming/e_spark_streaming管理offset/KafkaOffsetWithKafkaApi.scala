@@ -12,7 +12,7 @@ import org.apache.spark.streaming.{Seconds, StreamingContext}
 /**
  * 使用kafka自身的API 存储偏移量
  */
-object KafkaOffsetWithkafkaApi {
+object KafkaOffsetWithKafkaApi {
   def main(args: Array[String]): Unit = {
     //spark参数
     val path = "./kafka_ckpt"
