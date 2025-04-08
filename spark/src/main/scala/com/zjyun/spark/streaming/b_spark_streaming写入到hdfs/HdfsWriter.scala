@@ -1,4 +1,4 @@
-package com.zjyun.spark.streaming.b_c_spark_streaming写入到hdfs
+package com.zjyun.spark.streaming.b_spark_streaming写入到hdfs
 
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FSDataOutputStream, FileSystem, Path}
