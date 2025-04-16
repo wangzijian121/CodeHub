@@ -11,7 +11,7 @@ object JsonDemo {
 
     // 方法2：使用选项配置读取JSON文件
     println("=== 方法2：使用选项配置读取JSON文件 ===")
-    val jsonDF  = sparkSession.read
+    val jsonDF = sparkSession.read
       .option("multiline", "true") // 支持多行JSON
       .json(basePath + "json-demo-input.json")
     
