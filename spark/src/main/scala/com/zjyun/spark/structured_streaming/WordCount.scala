@@ -26,9 +26,9 @@ object WordCount {
     // 分割单词
     val words = lines.as[String].flatMap(_.split(" "))
     // 生成运行字数
-/*    val wordCounts = words.groupBy("value")
+    val wordCounts = words.groupBy("value")
       .agg(count("value")as("单词出现的个数"))
-      .withColumnRenamed("value","单词")*/
+      .withColumnRenamed("value","单词")
 
     //开始运行将运行计数打印到控制台的查询
     val query = words.writeStream
