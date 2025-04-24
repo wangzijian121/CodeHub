@@ -1,4 +1,4 @@
-package com.zjyun.spark.structured_streaming.操作方式.rdd方式
+package com.zjyun.spark.structured_streaming.操作流的方式.api方式
 
 import org.apache.spark.sql.SparkSession
 
@@ -20,23 +20,18 @@ object kafkaStreaming {
       .option("kafka.bootstrap.servers", "192.168.56.98:9092")
       .option("subscribe", "name")
       .load()
-
-    val dataFrame1 = dataFrame.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
+    val frame1 = dataFrame.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
       .as[(String, String)]
       .select("value").as[String]
       .map(t => {
         val s = t.split(" ")
         (s(0), s(1), s(2))
       }).toDF("id", "name", "age")
-      .createTempView("person")
+    //API的方式
+    val frame2 = frame1.groupBy("age").count()
 
-    val dataFrame2 = spark.sql(
-      """
-        |select age,count(1) from person group by age
-        |""".stripMargin)
-    println(dataFrame2.isStreaming)
     //获取输出流
-    dataFrame2.writeStream
+    frame2.writeStream
       .outputMode("complete")
       .format("console")
       .start()
