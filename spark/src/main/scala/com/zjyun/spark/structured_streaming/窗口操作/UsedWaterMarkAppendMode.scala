@@ -1,4 +1,4 @@
-package com.zjyun.spark.structured_streaming.窗口函数
+package com.zjyun.spark.structured_streaming.窗口操作
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.window
@@ -26,12 +26,8 @@ import java.sql.Timestamp
  *2023-02-13 12:26:10 owl
  *
  *输出数据
- *```
-*第一次更新：
- *2023-02-13 12:07:10 dog
- *2023-02-13 12:08:10 owl
  */
-object SessionWindow {
+object UsedWaterMarkAppendMode {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder()
       .master("local[2]")
@@ -70,7 +66,7 @@ object SessionWindow {
 
     //获取输出流
     dataFrame1.writeStream
-      .outputMode("update")
+      .outputMode("append")
       .format("console")
       .option("truncate", "false")
       .start()

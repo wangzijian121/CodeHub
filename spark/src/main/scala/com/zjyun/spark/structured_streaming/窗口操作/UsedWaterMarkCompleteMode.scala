@@ -1,7 +1,8 @@
-package com.zjyun.spark.structured_streaming.窗口函数
+package com.zjyun.spark.structured_streaming.窗口操作
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.window
+import org.apache.spark.sql.streaming.OutputMode
 
 import java.sql.Timestamp
 
@@ -48,7 +49,7 @@ object UsedWaterMarkCompleteMode {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder()
       .master("local[2]")
-      .appName("structured_streaming读取kafka")
+      .appName("使用watermark的")
       .getOrCreate()
     import spark.implicits._
 
@@ -61,7 +62,7 @@ object UsedWaterMarkCompleteMode {
       .load()
 
     //2023-02-13 12:02:11 cat1 dog1
-    //2023-02-13 12:02:12 cat2 dog2
+    //2023-02-13 12:22:12 cat1 dog1
     //2023-02-13 12:02:13 cat3 dog3
     val dataFrame1 = dataFrame.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
       .as[(String, String)]
@@ -81,7 +82,7 @@ object UsedWaterMarkCompleteMode {
 
     //获取输出流
     dataFrame1.writeStream
-      .outputMode("complete")
+      .outputMode(OutputMode.Update())
       .format("console")
       .option("truncate", "false")
       .start()

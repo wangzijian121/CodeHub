@@ -1,7 +1,8 @@
-package com.zjyun.spark.structured_streaming.窗口函数
+package com.zjyun.spark.structured_streaming.窗口操作
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.window
+import org.apache.spark.sql.streaming.OutputMode
 
 import java.sql.Timestamp
 
@@ -118,7 +119,7 @@ object UsedWaterMarkUpdateMode {
 
     //获取输出流
     dataFrame1.writeStream
-      .outputMode("update")
+      .outputMode(OutputMode.Update())
       .format("console")
       .option("truncate", "false")
       .start()

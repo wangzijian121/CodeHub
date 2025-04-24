@@ -1,4 +1,4 @@
-package com.zjyun.spark.structured_streaming.窗口函数
+package com.zjyun.spark.structured_streaming.窗口操作
 
 import org.apache.spark.sql.SparkSession
 import java.sql.Timestamp
